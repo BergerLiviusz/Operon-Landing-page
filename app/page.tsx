@@ -10,7 +10,6 @@ import {
   IconHierarchy3,
   IconLifebuoy,
   IconMapSearch,
-  IconNetwork,
   IconProgressCheck,
   IconRoute,
   IconSettingsAutomation,
@@ -19,6 +18,7 @@ import {
   IconUserCog,
   type Icon,
 } from "@tabler/icons-react";
+import OperonHeroAsciiOne from "@/components/ui/hero-ascii-one";
 import OperonInteractions from "./operon-interactions";
 
 const navItems = [
@@ -250,72 +250,7 @@ export default function Home() {
       </header>
 
       <main id="top">
-        <section className="hero section-shell" data-hero>
-          <div className="hero-system" data-reveal>
-            <div className="system-topline">
-              <span>ERP OS / HU-SMB</span>
-              <span>MODULAR CORE</span>
-            </div>
-            <div className="system-grid" aria-hidden="true">
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-            </div>
-            <div className="system-center">
-              <SystemIcon icon={IconNetwork} className="system-icon" />
-              <div>
-                <strong>Operon Control Layer</strong>
-                <p>Unified finance, stock, CRM, production, projects, HR</p>
-              </div>
-            </div>
-            <div className="system-kpis">
-              <div>
-                <span data-count="6">0</span>
-                <small>modul</small>
-              </div>
-              <div>
-                <span data-count="1">0</span>
-                <small>adatmag</small>
-              </div>
-              <div>
-                <span data-count="24" data-suffix="/7">
-                  0
-                </span>
-                <small>felho</small>
-              </div>
-            </div>
-          </div>
-
-          <div className="hero-copy">
-            <p className="meta-label" data-reveal>
-              Modulalapú ERP SaaS magyar kis- és középvállalatoknak
-            </p>
-            <div className="hero-title-wrap" data-reveal>
-              <h1>Irányíts teljes vállalatot</h1>
-              <span aria-hidden="true">Irányíts teljes vállalatot</span>
-            </div>
-            <p className="hero-lede" data-reveal>
-              Az Operon egy modern, integrált vállalatirányítási platform,
-              amely összeköti a napi működést, a vezetői riportokat és a
-              növekedéshez szükséges modulokat.
-            </p>
-            <div className="hero-actions" data-reveal>
-              <a className="primary-action" href="#demo">
-                <span>Bemutatót kérek</span>
-                <i aria-hidden="true">→</i>
-              </a>
-              <a className="secondary-action" href="#modules">
-                <span>Modulok megnézése</span>
-                <i aria-hidden="true">→</i>
-              </a>
-            </div>
-          </div>
-        </section>
+        <OperonHeroAsciiOne />
 
         <section className="proof section-shell" aria-label="Cégtípusok">
           <p data-reveal>Magyar vállalatok komplex működéséhez tervezve</p>
