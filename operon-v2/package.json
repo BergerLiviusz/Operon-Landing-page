@@ -1,0 +1,23 @@
+{
+  "name": "operon-v2-sui-clone",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Standalone Operon ERP marketing site cloned from Sui.io ZipIt exports",
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "build": "node scripts/build-site.mjs",
+    "dev": "node scripts/build-site.mjs && node scripts/dev-server.mjs",
+    "start": "node scripts/dev-server.mjs",
+    "audit:live": "node scripts/playwright-audit-live.mjs",
+    "audit:local": "node scripts/playwright-audit-local.mjs",
+    "audit:home-selection": "node scripts/playwright-audit-home-selection.mjs",
+    "audit:developers": "node scripts/playwright-audit-developers.mjs",
+    "validate": "node scripts/validate-site.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.60.0"
+  }
+}

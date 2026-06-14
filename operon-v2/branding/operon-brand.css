@@ -1,0 +1,671 @@
+/* Pencil banner + floating header bar — shared container-1400 width */
+html.operon-v2 #navigation.navbar.w-nav {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  width: 100% !important;
+  position: fixed !important;
+  z-index: 2147483647 !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  pointer-events: none !important;
+}
+
+html.operon-v2 #navigation.navbar.w-nav > * {
+  pointer-events: auto !important;
+}
+
+html.operon-v2 #navigation > .padding-global.mob_no-padd,
+html.operon-v2 #navigation > .padding-global.mob_no-padd.devnav {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0.5em 0 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  flex: 0 0 auto !important;
+  box-sizing: border-box !important;
+  background: transparent !important;
+}
+
+html.operon-v2 #navigation .container-1400.w-container {
+  width: 100% !important;
+  max-width: 87.5em !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+}
+
+html.operon-v2 #navigation [nav-banner].pencil_layout {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0.5em 1.031em !important;
+  box-sizing: border-box !important;
+  flex: 0 0 auto !important;
+  position: relative !important;
+  z-index: 2 !important;
+  background: var(--operon-plum) !important;
+  display: flex !important;
+  flex-flow: row nowrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 0 !important;
+}
+
+html.operon-v2 #navigation [nav-banner] .gap-8.align-center {
+  flex: 1 1 auto !important;
+  width: 100% !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+html.operon-v2 #navigation [nav-banner] [data-wrapper-banner] {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+html.operon-v2 #navigation [nav-banner] .mw-264 {
+  max-width: 100% !important;
+  width: 100% !important;
+  flex: 1 1 auto !important;
+  text-align: center !important;
+  overflow: visible !important;
+}
+
+html.operon-v2 #navigation [nav-banner] a[data-banner],
+html.operon-v2 #navigation [nav-banner] .link.color-white {
+  display: inline-block !important;
+  position: relative !important;
+  width: auto !important;
+  max-width: calc(100% - 2rem) !important;
+  text-align: center !important;
+  padding-right: 0 !important;
+  box-sizing: border-box !important;
+  color: #fff !important;
+  pointer-events: auto !important;
+  text-decoration: none !important;
+}
+
+html.operon-v2 #navigation [nav-banner] a[data-banner] span {
+  display: none !important;
+}
+
+html.operon-v2 #navigation [nav-banner] a[data-banner]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: var(--operon-mint);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.45s ease;
+  pointer-events: none;
+}
+
+html.operon-v2 #navigation [nav-banner] a[data-banner]:hover::after,
+html.operon-v2 #navigation [nav-banner] a[data-banner]:focus-visible::after {
+  transform: scaleX(1);
+}
+
+html.operon-v2 #navigation [nav-banner] .mob_fader {
+  display: none !important;
+}
+
+html.operon-v2 #navigation [nav-banner] .icon-x {
+  position: absolute !important;
+  right: 1.031em !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  margin: 0 !important;
+  color: #fff !important;
+  cursor: pointer !important;
+  z-index: 3 !important;
+  pointer-events: auto !important;
+  flex-shrink: 0 !important;
+}
+
+html.operon-v2 #navigation .navbar_layout {
+  width: 100% !important;
+  margin: 0 !important;
+  background-color: var(--operon-bg) !important;
+  border: 1px solid var(--operon-plum) !important;
+  border-radius: 0 !important;
+  padding: 0.719em 1.031em !important;
+  box-sizing: border-box !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
+/* Nav menu text + icons on light header */
+html.operon-v2 #navigation .navbar_link,
+html.operon-v2 #navigation .navbar_link-text,
+html.operon-v2 #navigation .navbar-dd_toggle,
+html.operon-v2 #navigation .w-nav-link,
+html.operon-v2 #navigation .hm_back-text {
+  color: var(--operon-ink) !important;
+}
+
+html.operon-v2 #navigation .navbar-dd_icon {
+  color: var(--operon-ink) !important;
+  background-color: transparent !important;
+  border: 1px solid var(--operon-plum) !important;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* Landing build — no nav dropdown panels */
+html.operon-v2 #navigation .navbar-content {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+}
+
+html.operon-v2 #navigation .navbar-dd_icon path {
+  transform-origin: center center;
+}
+
+html.operon-v2 #navigation .navbar-brand,
+html.operon-v2 #navigation .w-nav-brand {
+  color: var(--operon-ink) !important;
+}
+
+/* Header CTA — plum default, mint hover */
+html.operon-v2 #navigation .nav_cta-button,
+html.operon-v2 #navigation .nav_cta-button.is--blue {
+  background-color: var(--operon-plum) !important;
+  border: 1px solid var(--operon-plum) !important;
+  color: #fff !important;
+}
+
+html.operon-v2 #navigation .nav_cta-button:hover,
+html.operon-v2 #navigation .nav_cta-button.is--blue:hover {
+  background-color: var(--operon-mint) !important;
+  border-color: var(--operon-mint) !important;
+  color: var(--operon-ink) !important;
+}
+
+/* Dropdown panels */
+html.operon-v2 #navigation .navbar-dd_category {
+  background-color: var(--operon-plum) !important;
+  color: #fff !important;
+}
+
+html.operon-v2 #navigation .navbar-dd_link,
+html.operon-v2 #navigation .navbar-dd_link-desc,
+html.operon-v2 #navigation .cta-dd_link,
+html.operon-v2 #navigation .cta-dd_link-desc {
+  color: var(--operon-ink) !important;
+}
+
+html.operon-v2 #navigation .navbar-dd_link-block:hover,
+html.operon-v2 #navigation .cta-dd_link-block:hover {
+  background-color: rgba(73, 253, 178, 0.14) !important;
+}
+
+html.operon-v2 #navigation .navbar-dd_link-block > div[style*="background-color"],
+html.operon-v2 #navigation .cta-dd_link-block > div[style*="background-color"] {
+  background-color: rgba(73, 253, 178, 0.18) !important;
+}
+
+html.operon-v2 #navigation [nav-banner] + .padding-global.mob_no-padd,
+html.operon-v2 #navigation .container-1400 > [nav-banner].pencil_layout + .navbar_layout {
+  margin-top: 0 !important;
+}
+
+html.operon-v2 #navigation [nav-banner].is-dismissed {
+  display: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  border: none !important;
+}
+
+html.operon-v2 #navigation [nav-banner] a[data-banner] {
+  color: #fff !important;
+}
+
+@media screen and (max-width: 991px) {
+  html.operon-v2 #navigation [nav-banner].pencil_layout {
+    padding: 0.5em 0.75em !important;
+  }
+
+  html.operon-v2 #navigation [nav-banner] .icon-x {
+    right: 0.75em !important;
+  }
+
+  html.operon-v2 #navigation .navbar_layout {
+    padding: 0.875em 0.75em 0.875em 0.75em !important;
+  }
+
+  html.operon-v2 #navigation [nav-banner] a[data-banner] {
+    font-size: 0.75rem !important;
+    line-height: 1.25 !important;
+    max-width: calc(100% - 1.75rem) !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  html.operon-v2 #navigation [nav-banner].pencil_layout {
+    padding: 0.625em 0.625em !important;
+  }
+
+  html.operon-v2 #navigation [nav-banner] .icon-x {
+    right: 0.625em !important;
+  }
+
+  html.operon-v2 #navigation .navbar_layout {
+    padding: 0.875em 0.625em 0.875em 0.75em !important;
+  }
+}
+
+/* OPERON ERP — visual layer on top of Sui export DOM (v2 only) */
+:root {
+  --operon-bg: #f6f2f0;
+  --operon-bg-soft: #faf7f5;
+  --operon-bg-subtle: #efeae7;
+  --operon-bg-muted: #e3dbd7;
+  --operon-bg-deep: #ddd5d1;
+  --operon-ink: #11030e;
+  --operon-plum: #460c39;
+  --operon-mint: #49fdb2;
+  --color-3: #49fdb2;
+  --color-18: #49fdb2;
+  --color-19: #49fdb2;
+  --color-20: rgba(73, 253, 178, 0.28);
+  --color--primary-blue: #460c39;
+}
+
+html.operon-v2 {
+  --color--grey-50: #f6f2f0;
+  --color--grey-100: #f6f2f0;
+  --color--grey-200: #f6f2f0;
+  --color--cultured: #f6f2f0;
+  --color-4: #f6f2f0;
+  --color-10: #f6f2f0;
+  --color-16: #f6f2f0;
+  --color-24: #f6f2f0;
+}
+
+html.operon-v2,
+html.operon-v2 body {
+  background-color: var(--operon-bg) !important;
+  color: var(--operon-ink);
+}
+
+/* Base canvas — every light page shell */
+html.operon-v2 .rebounce-effect,
+html.operon-v2 .page-wrapper,
+html.operon-v2 .main-wrapper,
+html.operon-v2 .seqtrigger,
+html.operon-v2 .gradient_background,
+html.operon-v2 .layered_gradient,
+html.operon-v2 .data_expander,
+html.operon-v2 .scroll_expander,
+html.operon-v2 .custom_scroll,
+html.operon-v2 .sticky_overlap,
+html.operon-v2 .padding-global,
+html.operon-v2 .padding-global.custom_padding,
+html.operon-v2 .container-1400,
+html.operon-v2 .w-container {
+  background-color: var(--operon-bg);
+}
+
+html.operon-v2 .hero-section:not(.operon-ascii-hero),
+html.operon-v2 .home-benefits,
+html.operon-v2 .home-carousel,
+html.operon-v2 .home-selection,
+html.operon-v2 .blink_wrap,
+html.operon-v2 .tabs_layout,
+html.operon-v2 .home-tabs_layout,
+html.operon-v2 .tabs_layout_wrapper,
+html.operon-v2 .tabs_layout_cover,
+html.operon-v2 .home-benefits_content-block,
+html.operon-v2 .home-benefits_section,
+html.operon-v2 .home-benefits_layout,
+html.operon-v2 .rs_grid-item,
+html.operon-v2 .f_grid_2,
+html.operon-v2 .tabs_wrapper,
+html.operon-v2 .content_devider,
+html.operon-v2 .blue_overlay,
+html.operon-v2 .layered_gradient {
+  background-color: var(--operon-bg) !important;
+}
+
+/* Flatten panel borders / dotted dividers on light surfaces */
+html.operon-v2 .home-benefits_content-block,
+html.operon-v2 .tabs_wrapper,
+html.operon-v2 .f_grid_2,
+html.operon-v2 hr,
+html.operon-v2 .content_devider {
+  border: none !important;
+  border-color: transparent !important;
+}
+
+html.operon-v2 .svgdotted path,
+html.operon-v2 .tabs_wrapper > svg path,
+html.operon-v2 .home-tabs_layout > .svghidden svg path {
+  stroke: transparent !important;
+  opacity: 0 !important;
+}
+
+html.operon-v2 .svgdotted {
+  display: none !important;
+}
+
+/* Keep svghidden template hidden (Sui uses per-row .svgdotted instead) */
+html.operon-v2 .home-tabs_layout > .svghidden {
+  display: none !important;
+}
+
+/* home-selection / home-tabs_layout — restore Sui-style dotted row dividers (rows 2–5) */
+html.operon-v2 .home-tabs_layout .svgdotted,
+html.operon-v2 .home-selection .svgdotted {
+  display: block !important;
+  width: 100% !important;
+  height: auto;
+  min-height: 4px;
+  padding-bottom: 0.75em;
+  overflow: visible !important;
+  position: relative;
+  z-index: 1;
+}
+
+html.operon-v2 .home-tabs_layout .tabs_wrapper > .svgdotted path,
+html.operon-v2 .home-selection .tabs_wrapper > .svgdotted path {
+  stroke: #9e9198 !important;
+  stroke-width: 2px !important;
+  opacity: 1 !important;
+}
+
+/* Fallback rule if svg path specificity loses to global resets */
+html.operon-v2 .home-tabs_layout .svgdotted path,
+html.operon-v2 .home-selection .svgdotted path {
+  stroke: #9e9198 !important;
+  opacity: 1 !important;
+}
+
+html.operon-v2 .home-tabs_layout .f_grid_2,
+html.operon-v2 .home-selection .f_grid_2 {
+  overflow: visible !important;
+}
+
+/* Collapse Sui’s 120svh home-tabs pin — removes dead space above #modules */
+html.operon-v2 .home-selection .home-tabs_layout {
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+html.operon-v2 .home-selection {
+  padding-bottom: 3.5em;
+}
+
+/* home-selection — Lottie icon tiles (Operon plum, same 4em footprint as Sui) */
+html.operon-v2 .home-selection .mw-64.background-blue {
+  background-color: var(--operon-plum) !important;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+html.operon-v2 .home-selection .mw-64.background-blue svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+html.operon-v2 .cutout {
+  background: var(--operon-bg) !important;
+}
+
+html.operon-v2 .navbar {
+  transform: translateY(0) !important;
+  display: block !important;
+}
+
+/* Light-surface typography */
+html.operon-v2 .hero-section:not(.operon-ascii-hero),
+html.operon-v2 .tabs_layout,
+html.operon-v2 .tabs_layout_wrapper,
+html.operon-v2 section:not([class*="dark"]):not(.footer-section):not(.operon-ascii-hero) {
+  color: var(--operon-ink);
+}
+
+html.operon-v2 .h2-80px.color-black,
+html.operon-v2 .h3-60px,
+html.operon-v2 .ts-16px:not(.color-white),
+html.operon-v2 .ts-14px:not(.color-white):not(.mono),
+html.operon-v2 .color-black,
+html.operon-v2 p:not(.color-white):not(.operon-ascii-kicker) {
+  color: var(--operon-ink) !important;
+}
+
+html.operon-v2 a.link:not(.color-white):not(.cta-button):not(.nav_cta-button) {
+  color: var(--operon-plum) !important;
+}
+
+html.operon-v2 a.link:not(.color-white):hover {
+  color: var(--operon-mint) !important;
+}
+
+.bg-primary-blue,
+.block-12.bg-primary-blue,
+.background-blue,
+.mw-64.background-blue,
+.mw-78.background-blue {
+  background-color: var(--operon-plum) !important;
+}
+
+/* Benefit row — original Lottie icons on mint tiles */
+html.operon-v2 .blinkexpander .mw-78.background-blue,
+html.operon-v2 .blink_wrap .icon_expander .background-blue {
+  background-color: var(--operon-mint) !important;
+}
+
+html.operon-v2 .blinkexpander .mw-78.background-blue {
+  display: block;
+  overflow: hidden;
+}
+
+html.operon-v2 .blinkexpander .mw-78.background-blue svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Operon angular icon tiles (home-selection tabs; Lottie kept in blink row) */
+html.operon-v2 .operon-icon-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+html.operon-v2 .operon-icon-tile--plum {
+  width: 4em;
+  height: 4em;
+  background-color: var(--operon-plum) !important;
+  color: #f6f2f0;
+}
+
+html.operon-v2 .operon-icon-tile--mint {
+  width: 2.5em;
+  height: 2.5em;
+  background-color: var(--operon-mint) !important;
+  color: var(--operon-ink);
+}
+
+html.operon-v2 .operon-icon-tile .operon-icon,
+html.operon-v2 .operon-icon-tile svg {
+  display: block;
+  width: 2em;
+  height: 2em;
+}
+
+html.operon-v2 .operon-icon-tile--mint .operon-icon,
+html.operon-v2 .operon-icon-tile--mint svg {
+  width: 1.55em;
+  height: 1.55em;
+}
+
+html.operon-v2 .home-selection .content_devider {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+html.operon-v2 .home-selection .content_devider .h3-60px {
+  flex: 1;
+  min-width: 0;
+}
+
+.nav_cta-button,
+.nav_cta-button.is--blue,
+.cta-button.is--blue {
+  background-color: var(--operon-plum) !important;
+  border-color: var(--operon-plum) !important;
+}
+
+.nav_cta-button:hover,
+.nav_cta-button.is--blue:hover,
+.cta-button.is--blue:hover {
+  background-color: var(--operon-mint) !important;
+  border-color: var(--operon-mint) !important;
+  color: var(--operon-ink) !important;
+}
+
+.sharp {
+  background-image: radial-gradient(
+    circle at var(--text-x) var(--text-y),
+    var(--operon-bg-soft) 0%,
+    var(--operon-bg) 44%,
+    var(--operon-mint) 85%,
+    rgba(73, 253, 178, 0.12) 95%
+  ) !important;
+}
+
+.ball.lightblue {
+  background: var(--operon-mint) !important;
+}
+.ball.blue {
+  background: var(--operon-plum) !important;
+}
+
+.cta-button {
+  background: var(--operon-plum) !important;
+  border-color: var(--operon-plum) !important;
+  color: #fff !important;
+}
+
+.cta-button.is--alternative {
+  background: transparent !important;
+  color: var(--operon-plum) !important;
+}
+
+.cta-button:hover {
+  background: var(--operon-mint) !important;
+  color: var(--operon-ink) !important;
+  border-color: var(--operon-mint) !important;
+}
+
+.weglot-container,
+#ez-cookie-manager-button {
+  display: none !important;
+}
+
+rect[fill="#298DFF"],
+rect[fill="#49FDB2"],
+path[fill="#298DFF"],
+path[fill="#49FDB2"],
+circle[fill="#298DFF"],
+circle[fill="#49FDB2"] {
+  fill: var(--operon-mint) !important;
+}
+
+html.operon-v2 #navigation [style*="#298DFF"],
+html.operon-v2 #navigation [style*="#298dff"],
+html.operon-v2 #navigation [style*="#49FDB2"],
+html.operon-v2 #navigation [style*="#49fdb2"],
+html.operon-v2 #navigation [style*="rgb(41, 141, 255)"] {
+  background-color: var(--operon-mint) !important;
+  border-color: var(--operon-mint) !important;
+  color: var(--operon-ink) !important;
+}
+
+/* Operon navbar logo (replaces Sui sui-logo) */
+.navbar-brand .operon-logo,
+.navbar-brand img.operon-logo {
+  height: 2.75rem !important;
+  width: auto !important;
+  max-width: 9rem;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.navbar_brand-block .navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .navbar-brand .operon-logo,
+  .navbar-brand img.operon-logo {
+    height: 2.25rem !important;
+    max-width: 7.5rem;
+  }
+}
+
+/* Modules section — static headline + scroll steps (canvas sequence removed) */
+html.operon-v2 #canvasPin,
+html.operon-v2 .canvas-wrapper,
+html.operon-v2 .canvas_sequence {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  width: 0 !important;
+  pointer-events: none !important;
+}
+
+html.operon-v2 .operon-modules-section {
+  display: block !important;
+  position: relative !important;
+  z-index: 2 !important;
+  margin-top: 0;
+  background: var(--operon-bg) !important;
+}
+
+html.operon-v2 .operon-modules-section .operon-modules-padding {
+  padding: 8.5em var(--global--padding-global, 1.25em) 3.5em !important;
+  transform: none !important;
+  background: var(--operon-bg) !important;
+}
+
+html.operon-v2 .operon-modules-section .operon-modules-showcase.timeline_wrapper {
+  padding-top: 0 !important;
+  gap: 0 !important;
+}
+
+@media screen and (max-width: 991px) {
+  html.operon-v2 .operon-modules-section .operon-modules-padding {
+    padding: 5em 1.25em 2.5em !important;
+  }
+
+  html.operon-v2 .home-selection {
+    padding-bottom: 2em;
+  }
+}
