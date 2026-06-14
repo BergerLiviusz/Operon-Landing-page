@@ -1,4 +1,24 @@
 import Image from "next/image";
+import {
+  IconBuildingFactory2,
+  IconCashBanknote,
+  IconChartDots,
+  IconChartPie,
+  IconCloudLock,
+  IconComponents,
+  IconDatabase,
+  IconHierarchy3,
+  IconLifebuoy,
+  IconMapSearch,
+  IconNetwork,
+  IconProgressCheck,
+  IconRoute,
+  IconSettingsAutomation,
+  IconTopologyStar,
+  IconTruckDelivery,
+  IconUserCog,
+  type Icon,
+} from "@tabler/icons-react";
 import OperonInteractions from "./operon-interactions";
 
 const navItems = [
@@ -25,26 +45,31 @@ const principles = [
     title: "Egységes működés",
     text: "Pénzügy, készlet, értékesítés, gyártás, projektek és HR egy közös adatmodellben dolgozik.",
     meta: "01 / platform",
+    Icon: IconDatabase,
   },
   {
     title: "Modulokra építve",
     text: "Csak azt vezeti be, amire most szüksége van, majd új modulokkal bővíti a rendszert.",
     meta: "02 / modularitás",
+    Icon: IconComponents,
   },
   {
     title: "Adatból döntés",
     text: "Vezetői riportok, KPI-ok és elemzések adják vissza a cég valós működési ritmusát.",
     meta: "03 / riporting",
+    Icon: IconChartDots,
   },
   {
     title: "Felhő alapú alap",
     text: "Stabil, biztonságos és skálázható SaaS infrastruktúra, amely nem kéri el a teljes IT figyelmet.",
     meta: "04 / üzemeltetés",
+    Icon: IconCloudLock,
   },
   {
     title: "Szakértői kíséret",
     text: "Operon nem csak szoftver: feltárás, implementáció, betanítás és folyamatos tanácsadás.",
     meta: "05 / támogatás",
+    Icon: IconLifebuoy,
   },
 ];
 
@@ -54,36 +79,42 @@ const modules = [
     eyebrow: "Pénzügy és számvitel",
     title: "Kontrolling-alapú pénzügyi mag",
     text: "Számlázás, bizonylatok, kötelezettségek, terv-tény követés és vezetői pénzügyi riportok.",
+    Icon: IconCashBanknote,
   },
   {
     number: "02",
     eyebrow: "Beszerzés és készlet",
     title: "Mozgó készlet, tiszta folyamatok",
     text: "Beszerzési igények, raktárfolyamatok, készletszintek és beszállítói kontroll egy helyen.",
+    Icon: IconTruckDelivery,
   },
   {
     number: "03",
     eyebrow: "Értékesítés és CRM",
     title: "Ügyfélkapcsolatból pipeline",
     text: "Ajánlatok, ügyfelek, értékesítési státuszok és visszamérhető csapatmunka.",
+    Icon: IconChartPie,
   },
   {
     number: "04",
     eyebrow: "Gyártás és termelés",
     title: "Tervezhető kapacitás és anyagigény",
     text: "Gyártási utasítások, normák, munkafázisok és termelési állapotok követése.",
+    Icon: IconBuildingFactory2,
   },
   {
     number: "05",
     eyebrow: "Projektmenedzsment",
     title: "Feladatok, költségek, határidők",
     text: "Projektstruktúrák, erőforrások, mérföldkövek és jövedelmezőség összekötve.",
+    Icon: IconRoute,
   },
   {
     number: "06",
     eyebrow: "HR és erőforrások",
     title: "Csapatadatok üzleti kontextusban",
     text: "Munkavállalói adatok, kapacitás, jelenlét és szervezeti riportok támogatása.",
+    Icon: IconUserCog,
   },
 ];
 
@@ -138,30 +169,50 @@ const process = [
     step: "01",
     title: "Feltárás",
     text: "A jelenlegi folyamatok, adatok és szűk keresztmetszetek pontos feltérképezése.",
+    Icon: IconMapSearch,
   },
   {
     step: "02",
     title: "Modulterv",
     text: "Bevezetési sorrend, jogosultságok, riportok és integrációs pontok meghatározása.",
+    Icon: IconHierarchy3,
   },
   {
     step: "03",
     title: "Implementáció",
     text: "Konfiguráció, adatbetöltés, tesztelés és csapaton belüli betanítás.",
+    Icon: IconSettingsAutomation,
   },
   {
     step: "04",
     title: "Támogatás",
     text: "Folyamatos finomhangolás, szakértői tanácsadás és új modulok bekapcsolása.",
+    Icon: IconProgressCheck,
   },
 ];
 
 const resources = [
-  "ERP modulterkep",
+  "ERP modultérkép",
   "Bevezetési workshop",
   "Folyamat audit",
   "Vezetői riport demo",
 ];
+
+const iconStroke = 1.8;
+
+function SystemIcon({
+  icon: IconComponent,
+  className,
+}: {
+  icon: Icon;
+  className?: string;
+}) {
+  return (
+    <span className={className}>
+      <IconComponent aria-hidden="true" stroke={iconStroke} />
+    </span>
+  );
+}
 
 export default function Home() {
   return (
@@ -172,10 +223,10 @@ export default function Home() {
         <a href="#demo">Időpontot kérek</a>
       </div>
 
-      <header className="site-header" aria-label="Fooldal navigacio">
-        <a className="brand" href="#top" aria-label="Operon fooldal">
+      <header className="site-header" aria-label="Főoldal navigáció">
+        <a className="brand" href="#top" aria-label="Operon főoldal">
           <Image
-            src="/operon_logo_full.png"
+            src="/operon_logo_full_cropped.svg"
             alt="Operon"
             width={756}
             height={512}
@@ -183,7 +234,7 @@ export default function Home() {
           />
         </a>
 
-        <nav aria-label="Oldal szekciok">
+        <nav aria-label="Oldal szekciók">
           {navItems.map(([label, id]) => (
             <a href={`#${id}`} data-nav-link={id} key={id}>
               <span>{label}</span>
@@ -200,13 +251,6 @@ export default function Home() {
 
       <main id="top">
         <section className="hero section-shell" data-hero>
-          <div className="hero-geometry" aria-hidden="true">
-            <span className="hero-line hero-line-a" />
-            <span className="hero-line hero-line-b" />
-            <span className="hero-frame hero-frame-a" />
-            <span className="hero-frame hero-frame-b" />
-          </div>
-
           <div className="hero-system" data-reveal>
             <div className="system-topline">
               <span>ERP OS / HU-SMB</span>
@@ -223,7 +267,7 @@ export default function Home() {
               <span />
             </div>
             <div className="system-center">
-              <Image src="/operon_symbol.png" alt="" width={512} height={221} />
+              <SystemIcon icon={IconNetwork} className="system-icon" />
               <div>
                 <strong>Operon Control Layer</strong>
                 <p>Unified finance, stock, CRM, production, projects, HR</p>
@@ -273,7 +317,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="proof section-shell" aria-label="Cegtípusok">
+        <section className="proof section-shell" aria-label="Cégtípusok">
           <p data-reveal>Magyar vállalatok komplex működéséhez tervezve</p>
           <div className="proof-grid" data-reveal>
             {proofMarks.map((mark) => (
@@ -297,17 +341,13 @@ export default function Home() {
 
         <section className="principles section-shell">
           <div className="principles-head" data-reveal>
-            <a href="#modules" aria-label="Ugras a modulokhoz">→</a>
+            <a href="#modules" aria-label="Ugrás a modulokhoz">→</a>
             <p>Operon az</p>
           </div>
           <div className="principle-list">
             {principles.map((item) => (
               <article className="principle-row" data-reveal key={item.title}>
-                <div className="principle-icon" aria-hidden="true">
-                  <span />
-                  <span />
-                  <span />
-                </div>
+                <SystemIcon icon={item.Icon} className="principle-icon" />
                 <div>
                   <small>{item.meta}</small>
                   <h3>{item.title}</h3>
@@ -322,9 +362,9 @@ export default function Home() {
           <div className="stack-intro" data-reveal>
             <div className="section-index">
               <span>02</span>
-            <span>Moduláris stack</span>
+              <span>Moduláris stack</span>
             </div>
-            <h2>Innovacio, vallalatiranyitasra tervezve.</h2>
+            <h2>Innováció, vállalatirányításra tervezve.</h2>
             <p>
               Az Operon moduljai közös adatmaghoz kapcsolódnak, így minden
               üzleti terület saját munkafelületen dolgozik, de ugyanazt a valós
@@ -334,12 +374,15 @@ export default function Home() {
 
           <div className="stack-map" data-reveal>
             <div className="stack-core">
-              <Image src="/operon_symbol.png" alt="" width={512} height={221} />
-              <span>Operon ERP Core</span>
+              <SystemIcon icon={IconTopologyStar} className="stack-core-icon" />
+              <span>Live ERP map</span>
             </div>
             {modules.map((module) => (
               <article className="module-card" key={module.number}>
-                <span className="module-number">{module.number}</span>
+                <div className="module-topline">
+                  <span className="module-number">{module.number}</span>
+                  <SystemIcon icon={module.Icon} className="module-icon" />
+                </div>
                 <small>{module.eyebrow}</small>
                 <h3>{module.title}</h3>
                 <p>{module.text}</p>
@@ -354,7 +397,7 @@ export default function Home() {
               <span>03</span>
               <span>Biztonságos felhő</span>
             </div>
-            <h2>Ket nezopont, egy stabil rendszer.</h2>
+            <h2>Két nézőpont, egy stabil rendszer.</h2>
           </div>
           <div className="dual-grid">
             {benefits.map((group) => (
@@ -410,7 +453,10 @@ export default function Home() {
           <div className="process-track">
             {process.map((item) => (
               <article className="process-step" data-reveal key={item.step}>
-                <span>{item.step}</span>
+                <div className="process-step-head">
+                  <span>{item.step}</span>
+                  <SystemIcon icon={item.Icon} className="process-icon" />
+                </div>
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
               </article>
@@ -422,7 +468,7 @@ export default function Home() {
           <div className="resources-copy" data-reveal>
             <div className="section-index">
               <span>06</span>
-              <span>Kezdes</span>
+              <span>Kezdés</span>
             </div>
             <h2>Kezdje egy személyre szabott Operon bemutatóval.</h2>
             <p>
@@ -451,7 +497,7 @@ export default function Home() {
         <div className="section-shell footer-grid">
           <div className="footer-brand">
             <Image
-              src="/operon_logo_full.png"
+              src="/operon_logo_full_cropped.svg"
               alt="Operon"
               width={756}
               height={512}
@@ -470,7 +516,7 @@ export default function Home() {
           <div>
             <h4>Modulok</h4>
             <a href="#modules">Pénzügy</a>
-            <a href="#modules">Keszlet</a>
+            <a href="#modules">Készlet</a>
             <a href="#modules">CRM</a>
             <a href="#modules">Gyártás</a>
           </div>
