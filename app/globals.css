@@ -623,12 +623,12 @@ main {
   position: relative;
   z-index: 2;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-end;
   width: min(1240px, calc(100% - 48px));
-  min-height: 620px;
+  min-height: 540px;
   margin: 0 auto;
-  padding: 42px 0 94px;
+  padding: 22px 0 74px;
 }
 
 .operon-ascii-copy {
@@ -2079,9 +2079,10 @@ main {
   }
 
   .operon-ascii-content {
-    min-height: 640px;
+    min-height: 560px;
     justify-content: center;
-    padding-bottom: 104px;
+    padding-top: 28px;
+    padding-bottom: 84px;
   }
 
   .operon-ascii-copy {
@@ -2237,7 +2238,7 @@ main {
   .operon-ascii-content {
     width: min(100% - 28px, 520px);
     min-height: auto;
-    padding: 58px 0 92px;
+    padding: 34px 0 78px;
   }
 
   .operon-ascii-copy {
