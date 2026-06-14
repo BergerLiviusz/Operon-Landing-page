@@ -31,7 +31,7 @@ export default function OperonInteractions() {
     window.addEventListener("scroll", setHeaderState, { passive: true });
 
     revealItems
-      .filter((item) => item.closest(".hero"))
+      .filter((item) => item.closest("[data-hero]"))
       .forEach((item) => item.classList.add("is-visible"));
 
     if (prefersReducedMotion) {
