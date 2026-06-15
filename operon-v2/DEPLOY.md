@@ -10,16 +10,23 @@ npm run build
 
 ## Automatic deploy
 
-Pushes to `main` that touch `operon-v2/**` run `.github/workflows/deploy-operon-pages.yml`, which builds, validates, and publishes to GitHub Pages.
+Pushes to `main` that touch `operon-v2/**` run `.github/workflows/deploy-operon-pages.yml`, which:
 
-### One-time GitHub setup
+1. Builds and validates the site
+2. Publishes it to the **`gh-pages`** branch
 
-1. Open **Settings → Pages** on `BergerLiviusz/Operon-Landing-page`.
-2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
-3. After the first successful workflow run, set **Custom domain** to `www.operonworks.hu` (or confirm the `CNAME` file was deployed).
-4. Enable **Enforce HTTPS** once DNS is verified.
+## One-time GitHub setup
 
-### DNS (at your domain host)
+1. Open **Settings → Pages** on [Operon-Landing-page](https://github.com/BergerLiviusz/Operon-Landing-page/settings/pages).
+2. Under **Build and deployment → Source**, choose **Deploy from a branch**.
+3. Set **Branch** to `gh-pages` and folder **`/ (root)`**, then **Save**.
+4. Run the workflow once (push to `main` or **Actions → Deploy Operon v2 → Run workflow**).
+5. After the workflow succeeds, confirm **Custom domain** shows `www.operonworks.hu` (written by the deploy action).
+6. Enable **Enforce HTTPS** once DNS is verified.
+
+> If you previously tried **GitHub Actions** as the Pages source and saw a 404 deploy error, switch to **Deploy from a branch → gh-pages** as above.
+
+## DNS (at your domain host)
 
 Add a **CNAME** record:
 
@@ -28,6 +35,11 @@ Add a **CNAME** record:
 | CNAME | www  | bergerliviusz.github.io  |
 
 Optional: redirect bare `operonworks.hu` to `www.operonworks.hu` using your DNS/hosting panel.
+
+## Live URLs
+
+- Custom domain: `https://www.operonworks.hu`
+- Default Pages URL: `https://bergerliviusz.github.io/Operon-Landing-page/`
 
 ## Local preview
 
