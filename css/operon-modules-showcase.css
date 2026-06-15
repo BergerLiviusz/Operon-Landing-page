@@ -1,0 +1,548 @@
+/* Operon #modules — Sui developers feature showcase (light mode) */
+
+html.operon-v2 .operon-modules-showcase {
+  width: 100%;
+  padding: 0;
+  background: var(--operon-bg, #f6f2f0);
+  color: var(--operon-ink, #11030e);
+}
+
+html.operon-v2 .operon-mod-heading {
+  margin-bottom: 1.25rem;
+}
+
+html.operon-v2 .operon-mod-title {
+  margin: 0 0 1rem;
+  font-size: clamp(2.5rem, 6vw, 5.625rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  color: var(--operon-ink);
+}
+
+html.operon-v2 .operon-mod-kicker {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  max-width: 28rem;
+}
+
+html.operon-v2 .operon-mod-kicker_mark {
+  flex: 0 0 0.75rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-top: 0.35rem;
+  background: var(--operon-plum, #460c39);
+}
+
+html.operon-v2 .operon-mod-kicker_text {
+  font-size: 1.125rem;
+  line-height: 1.35;
+  color: var(--operon-ink);
+}
+
+/* Feature pin section */
+html.operon-v2 .operon-feature-pin {
+  margin-bottom: 2.75rem;
+}
+
+html.operon-v2 .operon-feature-inner {
+  border: none;
+  background: transparent;
+}
+
+html.operon-v2 .operon-modules-showcase .features-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+html.operon-v2 .operon-modules-showcase .features-cards-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5em;
+  align-self: stretch;
+  width: 100%;
+  height: 17.5em;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html.operon-v2 .operon-modules-showcase .feature-card {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex: 0 1 auto;
+  width: 28%;
+  height: 100%;
+  min-width: 0;
+  padding: 1em 0.3em 1em 1em;
+  color: #6c7584;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  outline: 1px dashed rgba(70, 12, 57, 0.28);
+  outline-offset: 0;
+  box-sizing: border-box;
+  transition:
+    width 0.4s cubic-bezier(0.3, 0, 0.25, 1),
+    color 0.4s cubic-bezier(0.3, 0, 0.25, 1),
+    outline 0.4s cubic-bezier(0.3, 0, 0.25, 1);
+}
+
+html.operon-v2 .operon-modules-showcase .feature-card .blue-text {
+  color: #6c7584;
+  transition: color 0.4s cubic-bezier(0.3, 0, 0.25, 1);
+}
+
+html.operon-v2 .operon-modules-showcase .feature-card-text {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  max-width: 52%;
+  font-size: 1.875em;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  transition: font-size 0.5s cubic-bezier(0.3, 0, 0.25, 1);
+}
+
+html.operon-v2 .operon-modules-showcase .feature-subtext {
+  position: relative;
+  z-index: 2;
+  max-width: 52%;
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+html.operon-v2 .operon-modules-showcase .feature-card-lottie {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: stretch;
+  width: 47%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s cubic-bezier(0.3, 0, 0.25, 1);
+}
+
+html.operon-v2 .operon-modules-showcase .feature-card.is--animating .feature-card-lottie {
+  opacity: 1;
+}
+
+html.operon-v2 .operon-modules-showcase .feature-lottie,
+html.operon-v2 .operon-modules-showcase .feature-lottie svg {
+  width: 100%;
+  height: 100%;
+}
+
+html.operon-v2 .operon-modules-showcase .feature-lottie svg {
+  display: block;
+}
+
+/* Card 1 — plum accent + lighter plum stripes */
+html.operon-v2 #operon-feature-card-1 .feature-lottie [fill="rgb(41, 141, 255)"],
+html.operon-v2 #operon-feature-card-1 .feature-lottie [fill="rgb(41,141,255)"],
+html.operon-v2 #operon-feature-card-1 .feature-lottie [fill="#298DFF"],
+html.operon-v2 #operon-feature-card-1 .feature-lottie [fill="#298dff"],
+html.operon-v2 #operon-feature-card-1 .feature-lottie [fill="#460C39"],
+html.operon-v2 #operon-feature-card-1 .feature-lottie [fill="#460c39"] {
+  fill: #460c39 !important;
+}
+
+html.operon-v2 #operon-feature-card-1 .feature-lottie [fill="rgb(143, 203, 255)"],
+html.operon-v2 #operon-feature-card-1 .feature-lottie [fill="rgb(143,203,255)"],
+html.operon-v2 #operon-feature-card-1 .feature-lottie [fill="#8FCBFF"],
+html.operon-v2 #operon-feature-card-1 .feature-lottie [fill="#8fcbff"],
+html.operon-v2 #operon-feature-card-1 .feature-lottie [fill="#B889A8"],
+html.operon-v2 #operon-feature-card-1 .feature-lottie [fill="#b889a8"] {
+  fill: #b889a8 !important;
+}
+
+/* Card 2 — mint bright / light / dark */
+html.operon-v2 #operon-feature-card-2 .feature-lottie [fill="rgb(41, 141, 255)"],
+html.operon-v2 #operon-feature-card-2 .feature-lottie [fill="rgb(41,141,255)"],
+html.operon-v2 #operon-feature-card-2 .feature-lottie [fill="#298DFF"],
+html.operon-v2 #operon-feature-card-2 .feature-lottie [fill="#298dff"],
+html.operon-v2 #operon-feature-card-2 .feature-lottie [fill="#49FDB2"],
+html.operon-v2 #operon-feature-card-2 .feature-lottie [fill="#49fdb2"] {
+  fill: #49fdb2 !important;
+}
+
+html.operon-v2 #operon-feature-card-2 .feature-lottie [fill="rgb(40, 140, 255)"],
+html.operon-v2 #operon-feature-card-2 .feature-lottie [fill="rgb(40,140,255)"],
+html.operon-v2 #operon-feature-card-2 .feature-lottie [fill="#288CFF"],
+html.operon-v2 #operon-feature-card-2 .feature-lottie [fill="#288cff"],
+html.operon-v2 #operon-feature-card-2 .feature-lottie [fill="#1FA87A"],
+html.operon-v2 #operon-feature-card-2 .feature-lottie [fill="#1fa87a"] {
+  fill: #1fa87a !important;
+}
+
+html.operon-v2 #operon-feature-card-2 .feature-lottie [fill="rgb(143, 203, 255)"],
+html.operon-v2 #operon-feature-card-2 .feature-lottie [fill="rgb(143,203,255)"],
+html.operon-v2 #operon-feature-card-2 .feature-lottie [fill="#8FCBFF"],
+html.operon-v2 #operon-feature-card-2 .feature-lottie [fill="#8fcbff"],
+html.operon-v2 #operon-feature-card-2 .feature-lottie [fill="#7dffd0"] {
+  fill: #7dffd0 !important;
+}
+
+/* Card 3 — light mint + plum dot grid (embedded JPEG in Lottie) */
+html.operon-v2 #operon-feature-card-3 .feature-lottie [fill="rgb(41, 141, 255)"],
+html.operon-v2 #operon-feature-card-3 .feature-lottie [fill="rgb(41,141,255)"],
+html.operon-v2 #operon-feature-card-3 .feature-lottie [fill="#298DFF"],
+html.operon-v2 #operon-feature-card-3 .feature-lottie [fill="#298dff"],
+html.operon-v2 #operon-feature-card-3 .feature-lottie [fill="#7dffd0"] {
+  fill: #7dffd0 !important;
+}
+
+html.operon-v2 #operon-feature-card-3 .feature-lottie [fill="rgb(255, 255, 255)"],
+html.operon-v2 #operon-feature-card-3 .feature-lottie [fill="rgb(255,255,255)"],
+html.operon-v2 #operon-feature-card-3 .feature-lottie [fill="#ffffff"],
+html.operon-v2 #operon-feature-card-3 .feature-lottie [fill="#FFFFFF"],
+html.operon-v2 #operon-feature-card-3 .feature-lottie [fill="#460C39"],
+html.operon-v2 #operon-feature-card-3 .feature-lottie [fill="#460c39"],
+html.operon-v2 #operon-feature-card-3 .feature-lottie [fill="#1FA87A"],
+html.operon-v2 #operon-feature-card-3 .feature-lottie [fill="#1fa87a"] {
+  fill: #460c39 !important;
+}
+
+html.operon-v2 #operon-feature-card-3 .feature-lottie [fill="rgb(143, 203, 255)"],
+html.operon-v2 #operon-feature-card-3 .feature-lottie [fill="rgb(143,203,255)"],
+html.operon-v2 #operon-feature-card-3 .feature-lottie [fill="#8FCBFF"],
+html.operon-v2 #operon-feature-card-3 .feature-lottie [fill="#8fcbff"] {
+  fill: #7dffd0 !important;
+}
+
+html.operon-v2 .operon-modules-showcase .feature-card.is--active {
+  width: 43%;
+  color: var(--operon-ink);
+  outline: 1px solid var(--operon-plum, #460c39);
+}
+
+html.operon-v2 .operon-modules-showcase .feature-card.is--active .blue-text {
+  color: var(--operon-mint, #49fdb2);
+  filter: saturate(1.15);
+}
+
+html.operon-v2 .operon-modules-showcase .feature-card.is--active .feature-card-text {
+  font-size: clamp(1.75rem, 3vw, 2.625rem);
+}
+
+html.operon-v2 .operon-modules-showcase .feature-card-mob-triggers {
+  display: none;
+}
+
+html.operon-v2 .operon-modules-showcase .features-line {
+  display: flex;
+  flex: none;
+  justify-content: center;
+  align-items: center;
+  width: 1px;
+  height: 6.25em;
+  margin: 2.75rem 0 0;
+  padding: 0;
+  border-right: 1px dashed rgba(70, 12, 57, 0.28);
+}
+
+html.operon-v2 .operon-modules-showcase .feature-line-box {
+  flex: none;
+  width: 0.375em;
+  height: 0.375em;
+  margin-right: -2px;
+  background-color: var(--operon-plum, #460c39);
+  transform: rotate(45deg);
+}
+
+/* Module CTA buttons — light Operon palette (override Sui dark .feature-button-link) */
+html.operon-v2 .operon-modules-showcase .features-butttons-wrapper {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: stretch;
+  align-self: stretch;
+  width: 100%;
+  border-top: none;
+  outline: 1px dashed rgba(70, 12, 57, 0.22);
+  outline-offset: 0;
+}
+
+html.operon-v2 .operon-modules-showcase .feature-button-link {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: stretch;
+  width: 100%;
+  min-height: 12rem;
+  height: auto !important;
+  padding: 1.25rem 1.5rem 1.5rem !important;
+  color: var(--operon-ink) !important;
+  text-decoration: none;
+  overflow: hidden;
+  background: transparent !important;
+  border-top: none;
+  transition: color 0.3s cubic-bezier(0, 0.4, 0.25, 1);
+}
+
+html.operon-v2 .operon-modules-showcase .featiure-button_line {
+  width: 1px;
+  background: rgba(70, 12, 57, 0.12);
+}
+
+html.operon-v2 .operon-modules-showcase .feature-button-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  font-size: clamp(1.75rem, 4vw, 3rem);
+}
+
+html.operon-v2 .operon-modules-showcase .feature-button-corner-icon {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.92em;
+  height: 0.92em;
+  color: var(--operon-plum, #460c39);
+  transform: translateY(0.06em);
+  transition: color 0.3s ease;
+}
+
+html.operon-v2 .operon-modules-showcase .feature-button-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+html.operon-v2 .operon-modules-showcase .feature-button-bottom {
+  display: block;
+}
+
+html.operon-v2 .operon-modules-showcase .feature-button-h3-link {
+  margin: 0;
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 1em !important;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--operon-plum, #460c39) !important;
+  transition: color 0.3s ease;
+}
+
+html.operon-v2 .operon-modules-showcase .feature-button-subtext {
+  font-family: ui-monospace, "TWK Everett Mono", monospace;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: #6c7584 !important;
+  max-width: 28em;
+}
+
+html.operon-v2 .operon-modules-showcase .feature-button-bg {
+  position: absolute;
+  inset: auto 0 0;
+  height: 0;
+  background: rgba(73, 253, 178, 0.22) !important;
+  transition: height 0.35s cubic-bezier(0.3, 0, 0.25, 1);
+  z-index: 0;
+}
+
+html.operon-v2 .operon-modules-showcase .feature-button-link:hover,
+html.operon-v2 .operon-modules-showcase .feature-button-link:focus-visible {
+  color: var(--operon-ink) !important;
+}
+
+html.operon-v2 .operon-modules-showcase .feature-button-link:hover .feature-button-h3-link,
+html.operon-v2 .operon-modules-showcase .feature-button-link:focus-visible .feature-button-h3-link {
+  color: var(--operon-ink) !important;
+}
+
+html.operon-v2 .operon-modules-showcase .feature-button-link:hover .feature-button-corner-icon,
+html.operon-v2 .operon-modules-showcase .feature-button-link:focus-visible .feature-button-corner-icon {
+  color: var(--operon-ink);
+  transform: translateY(0.06em);
+}
+
+html.operon-v2 .operon-modules-showcase .feature-button-link:hover .feature-button-bg,
+html.operon-v2 .operon-modules-showcase .feature-button-link:focus-visible .feature-button-bg {
+  height: 100%;
+}
+
+html.operon-v2 .operon-modules-showcase .feature-button-top,
+html.operon-v2 .operon-modules-showcase .feature-button-bottom {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero tabs → module quick nav */
+html.operon-v2 .operon-mod-tabs-screen {
+  margin-bottom: 1.5rem;
+}
+
+html.operon-v2 .operon-mod-tabs.hero-tabs-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  background: transparent;
+  border: 1px solid rgba(70, 12, 57, 0.18);
+}
+
+html.operon-v2 .operon-mod-tabs .hero-tab {
+  flex: 1 1 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 4rem;
+  padding: 0.75rem 1rem;
+  color: #6c7584;
+  font-size: 0.875rem;
+  line-height: 1.2;
+  text-decoration: none;
+  border-right: 1px solid rgba(70, 12, 57, 0.1);
+  transition: color 0.25s ease, background 0.25s ease;
+}
+
+html.operon-v2 .operon-mod-tabs .hero-tab:last-child {
+  border-right: none;
+}
+
+html.operon-v2 .operon-mod-tabs .hero-tab-svg {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+html.operon-v2 .operon-mod-tabs:hover .hero-tab {
+  color: #9e9198;
+}
+
+html.operon-v2 .operon-mod-tabs .hero-tab:hover,
+html.operon-v2 .operon-mod-tabs .hero-tab:focus-visible {
+  color: var(--operon-ink);
+  background: rgba(73, 253, 178, 0.1);
+}
+
+/* Module grid */
+html.operon-v2 .operon-mod-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+html.operon-v2 .operon-mod-tile {
+  border: 1px solid rgba(70, 12, 57, 0.18);
+  background: #fff;
+  padding: 1rem 1.125rem;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+html.operon-v2 .operon-mod-tile:hover {
+  border-color: var(--operon-plum, #460c39);
+  box-shadow: 0 0 0 1px rgba(73, 253, 178, 0.25);
+}
+
+html.operon-v2 .operon-mod-tile_head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+html.operon-v2 .operon-mod-tile_num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  padding: 0.2rem 0.4rem;
+  border: 1px solid rgba(70, 12, 57, 0.25);
+  font-family: ui-monospace, monospace;
+  font-size: 0.75rem;
+  color: var(--operon-ink);
+}
+
+html.operon-v2 .operon-mod-tile_name {
+  font-family: ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: right;
+  color: var(--operon-ink);
+}
+
+html.operon-v2 .operon-mod-tile_foot {
+  border-top: 1px solid rgba(70, 12, 57, 0.12);
+  padding-top: 0.75rem;
+}
+
+html.operon-v2 .operon-mod-tile_stack {
+  font-size: 0.8rem;
+  color: #6c7584;
+}
+
+@media screen and (max-width: 991px) {
+  html.operon-v2 .operon-modules-showcase .feature-button-top {
+    font-size: clamp(1.5rem, 5vw, 1.75rem);
+  }
+
+  html.operon-v2 .operon-modules-showcase .features-line {
+    height: 3.75em;
+  }
+
+  html.operon-v2 .operon-modules-showcase .features-cards-wrapper {
+    flex-direction: column;
+    height: auto;
+    gap: 0.5rem;
+  }
+
+  html.operon-v2 .operon-modules-showcase .feature-card {
+    width: 100% !important;
+    min-height: 14em;
+    height: auto;
+    padding-bottom: 1em;
+  }
+
+  html.operon-v2 .operon-modules-showcase .feature-card-text,
+  html.operon-v2 .operon-modules-showcase .feature-subtext {
+    max-width: 55%;
+  }
+
+  html.operon-v2 .operon-mod-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  html.operon-v2 .operon-mod-tabs .hero-tab {
+    flex: 1 1 50%;
+    border-bottom: 1px solid rgba(70, 12, 57, 0.1);
+  }
+}
+
+@media screen and (max-width: 479px) {
+  html.operon-v2 .operon-modules-showcase .features-butttons-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  html.operon-v2 .operon-modules-showcase .featiure-button_line {
+    display: none;
+  }
+
+  html.operon-v2 .operon-mod-grid {
+    grid-template-columns: 1fr;
+  }
+
+  html.operon-v2 .operon-mod-tabs .hero-tab {
+    flex: 1 1 100%;
+  }
+}

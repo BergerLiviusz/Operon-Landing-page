@@ -1,0 +1,40 @@
+/* Design Tokens — extracted by ZipIt from www.sui.io */
+
+:root {
+  --color-1: #000000;
+  --color-2: #6C7584;
+  --color-3: #49FDB2;
+  --color-4: #F6F2F0;
+  --color-5: #460C39;
+  --color-6: #333333;
+  --color-7: #343940;
+  --color-8: #222529;
+  --color-9: #A1A7B2;
+  --color-10: #E3DBD7;
+  --color-11: #89919F;
+  --color-12: #FF0000;
+  --color-13: #FF3D3D;
+  --color-14: #767676;
+  --color-15: #4B515B;
+  --color-16: #F6F2F0;
+  --color-17: #1C1F23;
+  --color-18: #49FDB2;
+  --color-19: #49fdb2;
+  --color-20: rgba(73, 253, 178, 0.28);
+  --color-21: #CCCCCC;
+  --color-22: #FFDEDE;
+  --color-23: #011829;
+  --color-24: #F6F2F0;
+
+  /* Gradients */
+  --gradient-1: linear-gradient(rgba(19, 21, 24, 0) 41%, rgb(19, 21, 24) 61%);
+  --gradient-2: radial-gradient(circle at 55% 45%, rgba(19, 21, 24, 0), rgba(19, 21, 24, 0.8) 17%, rgb(19, 21, 24) 33%);
+  --gradient-3: linear-gradient(rgba(19, 21, 24, 0), rgb(19, 21, 24) 75%);
+  --gradient-4: radial-gradient(circle at 50% 100%, rgba(19, 21, 24, 0), rgba(19, 21, 24, 0.8) 17%, rgb(19, 21, 24) 33%);
+
+  /* Typography */
+  --font-1: "TWK Everett Mono";
+  --font-2: "TWK Everett";
+  --font-3: "sans-serif";
+  --font-4: "Times New Roman";
+}

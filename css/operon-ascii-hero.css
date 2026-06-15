@@ -1,0 +1,209 @@
+/* Operon hero — swirl dither shader background + technical layout */
+html.operon-v2 {
+  --operon-nav-offset: 148px;
+  --operon-hero-bg: #f6f2f0;
+  --operon-hero-ink: #11030e;
+  --operon-hero-muted: rgba(17, 3, 14, 0.62);
+  --operon-hero-line: rgba(70, 12, 57, 0.2);
+}
+
+html.operon-v2 .hero-section.operon-ascii-hero {
+  position: relative;
+  display: flex !important;
+  flex-flow: column;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100%;
+  min-height: calc(100svh - 24px);
+  padding: 0 !important;
+  color: var(--operon-hero-ink);
+  background: var(--operon-hero-bg) !important;
+  background-color: var(--operon-hero-bg) !important;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+html.operon-v2 .hero-section.operon-ascii-hero::before,
+html.operon-v2 .hero-section.operon-ascii-hero::after {
+  display: none;
+}
+
+html.operon-v2 .operon-hero-swirl {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+html.operon-v2 .operon-hero-swirl canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+html.operon-v2 .operon-ascii-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: min(1240px, calc(100% - 48px));
+  margin-inline: auto;
+  padding: 0;
+  pointer-events: none;
+}
+
+html.operon-v2 .operon-ascii-copy {
+  position: relative;
+  width: min(575px, 100%);
+  max-width: 100%;
+  margin-inline: auto;
+  color: var(--operon-hero-ink);
+  text-align: center;
+  pointer-events: auto;
+}
+
+html.operon-v2 .operon-ascii-copy::before {
+  display: none;
+}
+
+html.operon-v2 .operon-ascii-logo {
+  display: block;
+  width: clamp(4.25rem, 7vw, 5.75rem);
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 1.125rem;
+}
+
+html.operon-v2 .operon-ascii-kicker {
+  max-width: 525px;
+  margin: 20px auto 0 !important;
+  padding-top: 0;
+  color: #11030e !important;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  line-height: 1.5;
+}
+
+html.operon-v2 .operon-ascii-copy h1 {
+  max-width: 720px;
+  margin: 0 auto !important;
+  color: #49fdb2 !important;
+  font-family: "TWK Everett", Arial, sans-serif;
+  font-size: clamp(2.5rem, 5.2vw, 4.25rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.06;
+  text-transform: none;
+}
+
+html.operon-v2 .operon-ascii-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+/* Hero double-button — plum + mint Operon accents */
+html.operon-v2 .operon-ascii-hero .operon-ascii-actions .cta-wrapper {
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+  grid-template-rows: auto;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  align-items: stretch;
+  width: auto;
+  min-height: 3em;
+  display: grid;
+}
+
+html.operon-v2 .operon-ascii-hero .operon-ascii-actions .cta-button {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-width: 8.25rem;
+  min-height: 3em;
+  padding: 1em 1.875em;
+  border: none !important;
+  border-radius: 0;
+  background-color: var(--operon-plum) !important;
+  color: #f6f2f0 !important;
+  font-family: "TWK Everett", Arial, sans-serif;
+  font-size: 0.875em;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.005em;
+  text-transform: none;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+html.operon-v2 .operon-ascii-hero .operon-ascii-actions .cta-button.is--alternative {
+  padding-left: 1em;
+  padding-right: 1em;
+  background-color: var(--operon-mint) !important;
+  color: #11030e !important;
+  box-shadow: none;
+}
+
+html.operon-v2 .operon-ascii-hero .operon-ascii-actions .cta-button:hover,
+html.operon-v2 .operon-ascii-hero .operon-ascii-actions .cta-button:focus-visible {
+  background-color: var(--operon-plum) !important;
+  border-color: transparent !important;
+  color: #f6f2f0 !important;
+  transform: none;
+}
+
+html.operon-v2 .operon-ascii-hero .operon-ascii-actions .cta-button.is--alternative:hover,
+html.operon-v2 .operon-ascii-hero .operon-ascii-actions .cta-button.is--alternative:focus-visible {
+  background-color: var(--operon-mint) !important;
+  color: #11030e !important;
+}
+
+html.operon-v2 .operon-ascii-hero .operon-ascii-actions .cta-button span {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+  html.operon-v2 .operon-ascii-hero .operon-ascii-actions .cta-wrapper {
+    grid-template-columns: 1fr;
+    width: min(100%, 18rem);
+  }
+}
+
+@media (max-width: 991px) {
+  html.operon-v2 {
+    --operon-nav-offset: 128px;
+  }
+
+  html.operon-v2 .operon-ascii-content {
+    max-width: min(860px, calc(100% - 32px));
+  }
+}
+
+@media (max-width: 760px) {
+  html.operon-v2 {
+    --operon-nav-offset: 112px;
+  }
+
+  html.operon-v2 .operon-ascii-content {
+    max-width: min(520px, calc(100% - 28px));
+  }
+}
+
+/* Keep copy clear of the floating nav on very short viewports */
+@media (max-height: 700px) {
+  html.operon-v2 .hero-section.operon-ascii-hero {
+    justify-content: center !important;
+    padding-top: calc(var(--operon-nav-offset) * 0.25) !important;
+    padding-bottom: 1.5rem !important;
+    box-sizing: border-box;
+  }
+}
