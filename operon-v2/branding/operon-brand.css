@@ -669,3 +669,16 @@ html.operon-v2 .operon-modules-section .operon-modules-showcase.timeline_wrapper
     padding-bottom: 2em;
   }
 }
+
+/* Sui logo parallax block removed at build time — safety hide + benefits spacing */
+html.operon-v2 .sticky_overlap.home-page,
+html.operon-v2 .sui_wrap.hero-section,
+html.operon-v2 .sui_logo.home-page {
+  display: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+}

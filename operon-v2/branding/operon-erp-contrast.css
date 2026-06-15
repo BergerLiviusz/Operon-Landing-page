@@ -1,0 +1,407 @@
+/* Operon ERP contrast — Sui AI hero + challenge/solution (light mode) */
+
+html.operon-v2 {
+  --operon-contrast-bg: #f6f2f0;
+  --operon-contrast-ink: #11030e;
+  --operon-contrast-muted: #6c7584;
+  --operon-contrast-line: rgba(70, 12, 57, 0.22);
+}
+
+/* ── Hero (stripe + dot parallax) ── */
+html.operon-v2 .operon-contrast-hero {
+  position: relative;
+  width: 100%;
+  height: 168svh;
+  margin-bottom: 0;
+  background: var(--operon-contrast-bg);
+  overflow: visible;
+}
+
+html.operon-v2 .operon-contrast-hero__track {
+  position: relative;
+  height: 168svh;
+}
+
+html.operon-v2 .operon-contrast-hero__wrapper {
+  position: relative;
+  height: 100%;
+}
+
+html.operon-v2 .operon-contrast-hero__sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+html.operon-v2 .operon-contrast-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    #000 16%,
+    #000 76%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(180deg, transparent 0%, #000 16%, #000 76%, transparent 100%);
+}
+
+html.operon-v2 .operon-contrast-hero__dots {
+  position: absolute;
+  inset: 0;
+  opacity: 0.72;
+  background-image: radial-gradient(circle, rgba(70, 12, 57, 0.34) 1px, transparent 1px);
+  background-size: 12px 12px;
+}
+
+html.operon-v2 .operon-contrast-hero__beams {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+html.operon-v2 .operon-contrast-hero__beam {
+  width: clamp(5rem, 9vw, 8.5rem);
+  height: 130%;
+  margin-top: -8%;
+  will-change: transform;
+}
+
+html.operon-v2 .operon-contrast-hero__beam--left {
+  background: linear-gradient(
+    180deg,
+    rgba(246, 242, 240, 0) 0%,
+    rgba(73, 253, 178, 0.55) 32%,
+    rgba(70, 12, 57, 0.22) 68%,
+    rgba(246, 242, 240, 0) 100%
+  );
+  filter: blur(0.5px);
+}
+
+html.operon-v2 .operon-contrast-hero__beam--right {
+  background: linear-gradient(
+    180deg,
+    rgba(246, 242, 240, 0) 0%,
+    rgba(70, 12, 57, 0.2) 28%,
+    rgba(73, 253, 178, 0.5) 62%,
+    rgba(246, 242, 240, 0) 100%
+  );
+  filter: blur(0.5px);
+}
+
+html.operon-v2 .operon-contrast-hero__stripes {
+  position: absolute;
+  inset: -12% 12%;
+  display: flex;
+  gap: 0.35rem;
+  width: auto;
+  height: 124%;
+  pointer-events: none;
+}
+
+html.operon-v2 .operon-contrast-hero__stripe {
+  flex: 1 1 0;
+  min-width: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(70, 12, 57, 0.1) 14%,
+    rgba(73, 253, 178, 0.38) 38%,
+    rgba(70, 12, 57, 0.14) 58%,
+    rgba(73, 253, 178, 0.28) 78%,
+    transparent 100%
+  );
+  will-change: transform;
+}
+
+html.operon-v2 .operon-contrast-hero__stripe:nth-child(odd) {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(73, 253, 178, 0.22) 18%,
+    rgba(70, 12, 57, 0.16) 46%,
+    rgba(73, 253, 178, 0.34) 72%,
+    transparent 100%
+  );
+}
+
+html.operon-v2 .operon-contrast-hero__edge-fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+html.operon-v2 .operon-contrast-hero__edge-fade--top {
+  top: 0;
+  height: clamp(7rem, 18svh, 13rem);
+  background: linear-gradient(
+    180deg,
+    var(--operon-contrast-bg) 0%,
+    rgba(246, 242, 240, 0.94) 38%,
+    rgba(246, 242, 240, 0.45) 68%,
+    rgba(246, 242, 240, 0) 100%
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 55%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 0%, #000 55%, transparent 100%);
+}
+
+html.operon-v2 .operon-contrast-hero__edge-fade--bottom {
+  bottom: 0;
+  height: clamp(8rem, 22svh, 15rem);
+  background: linear-gradient(
+    0deg,
+    var(--operon-contrast-bg) 0%,
+    rgba(246, 242, 240, 0.94) 40%,
+    rgba(246, 242, 240, 0.45) 70%,
+    rgba(246, 242, 240, 0) 100%
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  -webkit-mask-image: linear-gradient(0deg, #000 0%, #000 55%, transparent 100%);
+  mask-image: linear-gradient(0deg, #000 0%, #000 55%, transparent 100%);
+}
+
+/* ── Trust / challenge-solution ── */
+html.operon-v2 .operon-contrast-trust {
+  position: relative;
+  z-index: 1;
+  margin-top: -3.5rem;
+  padding: 0 0 4em;
+  background: linear-gradient(
+    180deg,
+    rgba(246, 242, 240, 0) 0%,
+    var(--operon-contrast-bg) 3.5rem
+  );
+  color: var(--operon-contrast-ink);
+}
+
+html.operon-v2 .operon-contrast-trust__layout {
+  gap: 3rem;
+}
+
+html.operon-v2 .operon-contrast-trust__section-title {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: 0.2em 0.35em;
+  margin: 0;
+  font-family: "TWK Everett", Arial, sans-serif;
+  font-size: clamp(2rem, 4.5vw, 3.75rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  text-align: center;
+}
+
+html.operon-v2 .operon-contrast-trust__accent-word {
+  color: var(--operon-mint, #49fdb2);
+  filter: saturate(1.1);
+}
+
+html.operon-v2 .operon-contrast-trust__top-rule {
+  color: var(--operon-contrast-line);
+}
+
+html.operon-v2 .operon-contrast-trust__grid {
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+}
+
+html.operon-v2 .operon-contrast-trust__col {
+  position: relative;
+  padding: 2.5em 2em 2em;
+  box-sizing: border-box;
+}
+
+html.operon-v2 .operon-contrast-trust__eyebrow-wrap {
+  position: relative;
+  justify-content: center;
+}
+
+html.operon-v2 .operon-contrast-trust__eyebrow-mark {
+  background-color: var(--operon-plum, #460c39) !important;
+}
+
+html.operon-v2 .operon-contrast-trust__eyebrow {
+  color: var(--operon-plum, #460c39) !important;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+html.operon-v2 .operon-contrast-trust__col-title {
+  margin: 0;
+  color: var(--operon-contrast-ink) !important;
+  font-family: "TWK Everett", Arial, sans-serif;
+  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+}
+
+html.operon-v2 .operon-contrast-trust__col-lede {
+  margin: 0;
+  color: var(--operon-contrast-muted) !important;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+html.operon-v2 .operon-contrast-trust .ai-trust_heading-block {
+  padding-top: 2.5em;
+  padding-bottom: 2em;
+}
+
+html.operon-v2 .operon-contrast-trust__blocks {
+  margin-top: 2rem;
+  gap: 0.5em !important;
+}
+
+/* Sui ships .ai-trust_content-block with dark #131518 fill — light Operon cards */
+html.operon-v2 .operon-contrast-trust .ai-trust_content-block,
+html.operon-v2 .operon-contrast-trust__block {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.65rem;
+  min-height: auto !important;
+  padding: 1.25rem 1.125rem !important;
+  background-color: rgba(255, 255, 255, 0.72) !important;
+  border: 1px dashed var(--operon-contrast-line);
+  box-sizing: border-box;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+html.operon-v2 .operon-contrast-trust__col:last-child .ai-trust_content-block {
+  background-color: rgba(73, 253, 178, 0.1) !important;
+}
+
+html.operon-v2 .operon-contrast-trust__block:hover {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  border-color: rgba(70, 12, 57, 0.38);
+}
+
+html.operon-v2 .operon-contrast-trust__col:last-child .ai-trust_content-block:hover {
+  background-color: rgba(73, 253, 178, 0.16) !important;
+  border-color: rgba(70, 12, 57, 0.38);
+}
+
+html.operon-v2 .operon-contrast-trust__mark {
+  background-color: var(--operon-plum, #460c39) !important;
+  flex-shrink: 0;
+}
+
+html.operon-v2 .operon-contrast-trust__col:last-child .operon-contrast-trust__mark {
+  background-color: var(--operon-mint, #49fdb2) !important;
+}
+
+html.operon-v2 .operon-contrast-trust__col:last-child .operon-contrast-trust__block-title {
+  color: var(--operon-plum, #460c39) !important;
+}
+
+html.operon-v2 .operon-contrast-trust__block-title {
+  margin: 0;
+  color: var(--operon-contrast-ink) !important;
+  font-family: "TWK Everett", Arial, sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+html.operon-v2 .operon-contrast-trust__block-text {
+  margin: 0;
+  color: var(--operon-contrast-muted) !important;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+html.operon-v2 .operon-contrast-trust__vline,
+html.operon-v2 .operon-contrast-trust__hline {
+  color: var(--operon-contrast-line);
+  pointer-events: none;
+}
+
+html.operon-v2 .operon-contrast-trust .solutions_dots.left_aligned {
+  display: block;
+}
+
+html.operon-v2 .operon-contrast-trust .solutions_dots.right_aligned {
+  display: none;
+}
+
+html.operon-v2 .operon-contrast-trust__col:last-child .solutions_dots.left_aligned {
+  display: none;
+}
+
+html.operon-v2 .operon-contrast-trust__col:last-child .solutions_dots.right_aligned {
+  display: block;
+}
+
+html.operon-v2 .operon-contrast-trust__col .solutions_dots.bottom_aligned {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 991px) {
+  html.operon-v2 .operon-contrast-hero {
+    height: 148svh;
+  }
+
+  html.operon-v2 .operon-contrast-hero__track {
+    height: 148svh;
+  }
+
+  html.operon-v2 .operon-contrast-hero__stripes {
+    inset: -10% 6%;
+  }
+
+  html.operon-v2 .operon-contrast-trust__grid {
+    grid-template-columns: 1fr;
+  }
+
+  html.operon-v2 .operon-contrast-trust__col {
+    padding: 2em 0.5em;
+  }
+
+  html.operon-v2 .operon-contrast-trust .solutions_dots.left_aligned,
+  html.operon-v2 .operon-contrast-trust .solutions_dots.right_aligned {
+    display: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  html.operon-v2 .operon-contrast-hero {
+    height: 132svh;
+  }
+
+  html.operon-v2 .operon-contrast-hero__track {
+    height: 132svh;
+  }
+
+  html.operon-v2 .operon-contrast-hero__beam {
+    width: clamp(3.5rem, 14vw, 5rem);
+  }
+
+  html.operon-v2 .operon-contrast-hero__stripes {
+    opacity: 0.92;
+  }
+
+  html.operon-v2 .operon-contrast-trust {
+    margin-top: -1.5rem;
+    padding-bottom: 3em;
+  }
+}

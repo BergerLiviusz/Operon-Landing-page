@@ -310,17 +310,7 @@
 
     cards.forEach((card) => {
       card.addEventListener("mouseenter", () => activate(card));
-      card.addEventListener("mouseleave", (e) => {
-        const next = e.relatedTarget;
-        if (next instanceof Node && wrapper.contains(next)) return;
-        deactivate(card);
-      });
       card.addEventListener("focusin", () => activate(card));
-      card.addEventListener("focusout", (e) => {
-        const next = e.relatedTarget;
-        if (next instanceof Node && wrapper.contains(next)) return;
-        deactivate(card);
-      });
       card.setAttribute("tabindex", "0");
       card.setAttribute("role", "button");
       loadLottie(card.querySelector(".feature-lottie"));
@@ -333,12 +323,6 @@
     });
 
     setDefaultLayout();
-
-    wrapper.addEventListener("mouseleave", (e) => {
-      const next = e.relatedTarget;
-      if (next instanceof Node && wrapper.contains(next)) return;
-      setDefaultLayout();
-    });
 
     if (window.innerWidth <= 479 && window.gsap && window.ScrollTrigger) {
       const triggers = wrapper.querySelectorAll(".feature-card-trigger");

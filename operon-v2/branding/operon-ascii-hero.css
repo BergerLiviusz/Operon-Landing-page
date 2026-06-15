@@ -9,9 +9,13 @@ html.operon-v2 {
 
 html.operon-v2 .hero-section.operon-ascii-hero {
   position: relative;
+  display: flex !important;
+  flex-flow: column;
+  align-items: center !important;
+  justify-content: center !important;
   width: 100%;
   min-height: calc(100svh - 24px);
-  padding-top: var(--operon-nav-offset);
+  padding: 0 !important;
   color: var(--operon-hero-ink);
   background: var(--operon-hero-bg) !important;
   background-color: var(--operon-hero-bg) !important;
@@ -41,24 +45,36 @@ html.operon-v2 .operon-ascii-content {
   position: relative;
   z-index: 2;
   display: flex;
+  flex-flow: column;
   align-items: center;
   justify-content: center;
-  width: min(1240px, calc(100% - 48px));
-  min-height: 520px;
-  margin: 0 auto;
-  padding: 48px 0 72px;
+  width: 100%;
+  max-width: min(1240px, calc(100% - 48px));
+  margin-inline: auto;
+  padding: 0;
+  pointer-events: none;
 }
 
 html.operon-v2 .operon-ascii-copy {
   position: relative;
   width: min(575px, 100%);
-  margin: 48px auto 0;
+  max-width: 100%;
+  margin-inline: auto;
   color: var(--operon-hero-ink);
   text-align: center;
+  pointer-events: auto;
 }
 
 html.operon-v2 .operon-ascii-copy::before {
   display: none;
+}
+
+html.operon-v2 .operon-ascii-logo {
+  display: block;
+  width: clamp(4.25rem, 7vw, 5.75rem);
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 1.125rem;
 }
 
 html.operon-v2 .operon-ascii-kicker {
@@ -168,18 +184,8 @@ html.operon-v2 .operon-ascii-hero .operon-ascii-actions .cta-button span {
   }
 
   html.operon-v2 .operon-ascii-content {
-    width: min(100% - 32px, 860px);
-    align-items: center;
-    justify-content: center;
-    min-height: 480px;
-    padding-bottom: 64px;
+    max-width: min(860px, calc(100% - 32px));
   }
-
-  html.operon-v2 .operon-ascii-copy {
-    margin: 0 auto;
-    text-align: center;
-  }
-
 }
 
 @media (max-width: 760px) {
@@ -188,6 +194,16 @@ html.operon-v2 .operon-ascii-hero .operon-ascii-actions .cta-button span {
   }
 
   html.operon-v2 .operon-ascii-content {
-    width: min(100% - 28px, 520px);
+    max-width: min(520px, calc(100% - 28px));
+  }
+}
+
+/* Keep copy clear of the floating nav on very short viewports */
+@media (max-height: 700px) {
+  html.operon-v2 .hero-section.operon-ascii-hero {
+    justify-content: center !important;
+    padding-top: calc(var(--operon-nav-offset) * 0.25) !important;
+    padding-bottom: 1.5rem !important;
+    box-sizing: border-box;
   }
 }
