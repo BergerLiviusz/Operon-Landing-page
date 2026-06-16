@@ -1,7 +1,7 @@
 /* Operon efficiency chart — Sui payment-coins stablecoin block (light mode) */
 
 html.operon-v2 .operon-efficiency-chart {
-  padding: 3.5em 0 4.5em;
+  padding: 2.4em 0 4.3em;
   background: var(--operon-contrast-bg, #f6f2f0);
   color: var(--operon-contrast-ink, #11030e);
 }
@@ -36,7 +36,16 @@ html.operon-v2 .operon-efficiency-chart__grid {
 }
 
 html.operon-v2 .operon-efficiency-chart__chart-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   padding: 1.25em 0;
+  text-align: right;
+}
+
+html.operon-v2 .operon-efficiency-chart__chart-col .operon-efficiency-chart__ylabel {
+  width: min(100%, 40rem);
+  text-align: right;
 }
 
 html.operon-v2 .operon-efficiency-chart__copy-col {
@@ -249,7 +258,7 @@ html.operon-v2 .operon-efficiency-chart .solutions_dots.left_aligned {
 
 @media (max-width: 767px) {
   html.operon-v2 .operon-efficiency-chart {
-    padding: 2.5em 0 3.5em;
+    padding: 2.1em 0 3.3em;
   }
 
   html.operon-v2 .operon-efficiency-chart__chart-wrap {
