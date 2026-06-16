@@ -1,9 +1,69 @@
 /* Operon #modules — Sui developers feature showcase (light mode) */
 
+/* Decorative plum grid — fades out at center so content stays readable */
+html.operon-v2 .operon-modules-section {
+  overflow: visible !important;
+}
+
+html.operon-v2 .operon-modules-section .operon-modules-padding {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate;
+}
+
+html.operon-v2 .operon-modules-bg-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-color: #f6f2f0;
+  background-image:
+    radial-gradient(
+      ellipse 70% 56% at 50% 42%,
+      #f6f2f0 0%,
+      #f6f2f0 26%,
+      rgba(246, 242, 240, 0.96) 48%,
+      rgba(246, 242, 240, 0.5) 76%,
+      transparent 100%
+    ),
+    linear-gradient(rgba(70, 12, 57, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(70, 12, 57, 0.09) 1px, transparent 1px);
+  background-size:
+    100% 100%,
+    44px 44px,
+    44px 44px;
+  background-position: center, center, center;
+}
+
+html.operon-v2 .operon-modules-padding > :not(.operon-modules-bg-grid) {
+  position: relative;
+  z-index: 1;
+}
+
+@media screen and (max-width: 991px) {
+  html.operon-v2 .operon-modules-bg-grid {
+    background-size:
+      100% 100%,
+      36px 36px,
+      36px 36px;
+    background-image:
+      radial-gradient(
+        ellipse 78% 62% at 50% 40%,
+        #f6f2f0 0%,
+        #f6f2f0 28%,
+        rgba(246, 242, 240, 0.95) 50%,
+        rgba(246, 242, 240, 0.5) 80%,
+        transparent 100%
+      ),
+      linear-gradient(rgba(70, 12, 57, 0.073) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(70, 12, 57, 0.073) 1px, transparent 1px);
+  }
+}
+
 html.operon-v2 .operon-modules-showcase {
   width: 100%;
   padding: 0;
-  background: var(--operon-bg, #f6f2f0);
+  background: transparent;
   color: var(--operon-ink, #11030e);
 }
 

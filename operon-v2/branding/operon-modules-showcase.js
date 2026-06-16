@@ -37,6 +37,9 @@
     },
   };
 
+  // Ensure we only auto-animate the first card once per page load.
+  let hasAutoActivatedOnViewport = false;
+
   function buildColorMap(palette) {
     const { primary, secondary, tertiary } = palette;
     return new Map([
@@ -282,7 +285,7 @@
     wrapper.dataset.operonCardsBound = "1";
     const cards = [...wrapper.querySelectorAll(".feature-card")];
 
-    const DEFAULT_ACTIVE_ID = "operon-feature-card-3";
+    const DEFAULT_ACTIVE_ID = "operon-feature-card-1";
 
     function deactivate(card) {
       if (!card) return;
@@ -323,6 +326,31 @@
     });
 
     setDefaultLayout();
+
+    // On first scroll where the cards wrapper properly enters the viewport,
+    // animate the first card so its circle visual is already in motion.
+    if ("IntersectionObserver" in window && !hasAutoActivatedOnViewport) {
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting || hasAutoActivatedOnViewport) return;
+            hasAutoActivatedOnViewport = true;
+            const firstCard =
+              wrapper.querySelector(`#${DEFAULT_ACTIVE_ID}`) || cards[0];
+            if (firstCard) activate(firstCard);
+            obs.disconnect();
+          });
+        },
+        {
+          threshold: 0.35,
+        },
+      );
+      observer.observe(wrapper);
+    } else if (!hasAutoActivatedOnViewport) {
+      // Fallback for very old browsers: immediately mark as done so we don't
+      // repeatedly auto-activate on every init call.
+      hasAutoActivatedOnViewport = true;
+    }
 
     if (window.innerWidth <= 479 && window.gsap && window.ScrollTrigger) {
       const triggers = wrapper.querySelectorAll(".feature-card-trigger");

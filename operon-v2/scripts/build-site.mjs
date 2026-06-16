@@ -7,8 +7,9 @@
  */
 import { cp, mkdir, readFile, writeFile, rm, access, readdir } from "node:fs/promises";
 import { join, resolve, extname } from "node:path";
-import { buildOperonModulesShowcaseHtml } from "../branding/operon-modules-showcase.mjs";
+import { buildOperonModulesShowcaseHtml, buildOperonModulesBgGridHtml } from "../branding/operon-modules-showcase.mjs";
 import { buildOperonErpContrastHtml } from "../branding/operon-erp-contrast.mjs";
+import { patchHomeTrustBlink } from "../branding/operon-home-trust.mjs";
 
 const V2 = resolve(import.meta.dirname, "..");
 const BRANDING = join(V2, "branding");
@@ -237,7 +238,7 @@ function replaceModulesTimeline(html) {
   );
   out = out.replace(
     /<div inner-addon="" class="padding-large" style="transform: translate3d\(0px, 0px, 0px\);">/,
-    '<div inner-addon="" class="padding-large operon-modules-padding">',
+    `<div inner-addon="" class="padding-large operon-modules-padding">${buildOperonModulesBgGridHtml()}`,
   );
   out = out.replace(
     /<div class="timeline_wrapper">[\s\S]*?<\/div>\s*(?=<\/div>\s*<\/div>\s*<\/div>\s*<div class="sticky_overlap)/,
@@ -252,7 +253,7 @@ const INNER_FIXED_LOAD_RE =
 const HERO_SECTION_RE = /<section class="hero-section[^"]*">[\s\S]*?<\/section>/;
 
 function buildOperonAsciiHeroHtml() {
-  return `<section class="hero-section operon-ascii-hero" data-hero aria-label="Operon ERP bemutató"><div class="operon-hero-swirl" aria-hidden="true"><canvas></canvas></div><div class="operon-ascii-content"><div class="operon-ascii-copy"><img src="images/Operon_Logo_symbol.svg" alt="" class="operon-ascii-logo" decoding="async"><h1>Vállalatirányítás egyszerűen</h1><p class="operon-ascii-kicker">Integrált vállalkozás kezelési platform, Magyar kis- és középvállalkozásokra szabva.</p><div class="operon-ascii-actions"><div class="cta-wrapper width_auto"><a global="textStagger" href="#modules" class="cta-button"><span global-target="" data-weglot-text="Modulok" aria-label="Modulok">Modulok</span></a><a global="textStagger" href="#demo" class="cta-button is--alternative"><span global-target="" data-weglot-text="Lépjen kapcsolatba" aria-label="Lépjen kapcsolatba">Lépjen kapcsolatba</span></a></div></div></div></div></section>`;
+  return `<section class="hero-section operon-ascii-hero" data-hero aria-label="Operon ERP bemutató"><div class="operon-hero-swirl" aria-hidden="true"><canvas></canvas></div><div class="operon-ascii-content"><div class="operon-ascii-copy"><img src="images/Operon_Logo_symbol.svg" alt="" class="operon-ascii-logo" decoding="async"><h1>Vállalatirányítás egyszerűen</h1><p class="operon-ascii-kicker">Integrált vállalkozás kezelési platform, Magyar kis- és középvállalkozásokra szabva.</p><div class="operon-ascii-actions"><div class="cta-wrapper width_auto"><a global="textStagger" href="#modules" class="cta-button"><span global-target="" data-weglot-text="Modulok" aria-label="Modulok">Modulok</span></a><a global="textStagger" href="#demo" class="cta-button is--alternative"><span global-target="" data-weglot-text="Lépjen kapcsolatba" aria-label="Lépjen kapcsolatba">Lépjen kapcsolatba</span></a></div></div><div class="operon-hero-trust"><div class="operon-hero-trust__avatars" aria-hidden="true"><div class="operon-hero-trust__avatar"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=facearea&w=80&h=80&q=80" alt="" loading="lazy" decoding="async"></div><div class="operon-hero-trust__avatar"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=facearea&w=80&h=80&q=80" alt="" loading="lazy" decoding="async"></div><div class="operon-hero-trust__avatar"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=facearea&w=80&h=80&q=80" alt="" loading="lazy" decoding="async"></div><div class="operon-hero-trust__avatar"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=facearea&w=80&h=80&q=80" alt="" loading="lazy" decoding="async"></div></div><p class="operon-hero-trust__copy"><span>120+ magyar Kkv</span> bízza ránk mindennapi működését.</p></div></div></div></section>`;
 }
 
 /** Strip Sui intro hero and inject Operon ASCII hero (swirl shader + technical layout). */
@@ -492,6 +493,7 @@ async function main() {
   let homeHtml = await readFile(join(OUT, "index.html"), "utf8");
   homeHtml = replaceAll(homeHtml, content.home);
   homeHtml = replaceAll(homeHtml, allShared);
+  homeHtml = patchHomeTrustBlink(homeHtml);
   homeHtml = patchNavbarLogo(homeHtml);
   homeHtml = harmonizePencilBanner(homeHtml);
   homeHtml = patchPencilBannerLink(homeHtml);

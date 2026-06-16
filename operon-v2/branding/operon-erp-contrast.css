@@ -5,6 +5,7 @@ html.operon-v2 {
   --operon-contrast-ink: #11030e;
   --operon-contrast-muted: #6c7584;
   --operon-contrast-line: rgba(70, 12, 57, 0.22);
+  --operon-mint-dark: #1fa87a;
 }
 
 /* ── Hero (stripe + dot parallax) ── */
@@ -236,6 +237,11 @@ html.operon-v2 .operon-contrast-trust__eyebrow-mark {
   background-color: var(--operon-plum, #460c39) !important;
 }
 
+/* Solution column eyebrow uses mint accent */
+html.operon-v2 .operon-contrast-trust__col:last-child .operon-contrast-trust__eyebrow-mark {
+  background-color: var(--operon-mint, #49fdb2) !important;
+}
+
 html.operon-v2 .operon-contrast-trust__eyebrow {
   color: var(--operon-plum, #460c39) !important;
   font-size: 0.75rem;
@@ -292,13 +298,15 @@ html.operon-v2 .operon-contrast-trust__col:last-child .ai-trust_content-block {
 }
 
 html.operon-v2 .operon-contrast-trust__block:hover {
-  background-color: rgba(255, 255, 255, 0.92) !important;
-  border-color: rgba(70, 12, 57, 0.38);
+  background-color: rgba(70, 12, 57, 0.09) !important;
+  border-color: rgba(70, 12, 57, 0.48);
+  box-shadow: 0 0 0 1px rgba(70, 12, 57, 0.08);
 }
 
 html.operon-v2 .operon-contrast-trust__col:last-child .ai-trust_content-block:hover {
-  background-color: rgba(73, 253, 178, 0.16) !important;
-  border-color: rgba(70, 12, 57, 0.38);
+  background-color: rgba(73, 253, 178, 0.26) !important;
+  border-color: rgba(70, 12, 57, 0.42);
+  box-shadow: 0 0 0 1px rgba(73, 253, 178, 0.18);
 }
 
 html.operon-v2 .operon-contrast-trust__mark {
@@ -310,8 +318,41 @@ html.operon-v2 .operon-contrast-trust__col:last-child .operon-contrast-trust__ma
   background-color: var(--operon-mint, #49fdb2) !important;
 }
 
-html.operon-v2 .operon-contrast-trust__col:last-child .operon-contrast-trust__block-title {
-  color: var(--operon-plum, #460c39) !important;
+/* Icon wrapper — replaces the square mark */
+html.operon-v2 .operon-block-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+html.operon-v2 .operon-block-icon {
+  display: block;
+  color: var(--operon-plum, #460c39);
+  transition: color 0.2s ease;
+}
+
+html.operon-v2 .operon-contrast-trust__col:last-child .operon-block-icon {
+  color: var(--operon-mint-dark, #1fa87a);
+}
+
+html.operon-v2 .operon-contrast-trust__block:hover .operon-block-icon {
+  color: var(--operon-plum, #460c39);
+}
+
+html.operon-v2 .operon-contrast-trust__col:last-child .operon-contrast-trust__block:hover .operon-block-icon {
+  color: #158f68;
+}
+
+/* Solution column — unified dark grey text */
+html.operon-v2 .operon-contrast-trust__col:last-child .operon-contrast-trust__eyebrow,
+html.operon-v2 .operon-contrast-trust__col:last-child .operon-contrast-trust__col-title,
+html.operon-v2 .operon-contrast-trust__col:last-child .operon-contrast-trust__col-lede,
+html.operon-v2 .operon-contrast-trust__col:last-child .operon-contrast-trust__block-title,
+html.operon-v2 .operon-contrast-trust__col:last-child .operon-contrast-trust__block-text {
+  color: var(--operon-contrast-muted, #6c7584) !important;
 }
 
 html.operon-v2 .operon-contrast-trust__block-title {

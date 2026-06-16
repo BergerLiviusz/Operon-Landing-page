@@ -27,6 +27,8 @@ html.operon-v2 #navigation > .padding-global.mob_no-padd.devnav {
   margin: 0.5em 0 0 !important;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
+  padding-left: var(--operon-nav-inset) !important;
+  padding-right: var(--operon-nav-inset) !important;
   flex: 0 0 auto !important;
   box-sizing: border-box !important;
   background: transparent !important;
@@ -241,6 +243,10 @@ html.operon-v2 #navigation [nav-banner] a[data-banner] {
 }
 
 @media screen and (max-width: 991px) {
+  html.operon-v2 {
+    --operon-nav-inset: 1.5rem;
+  }
+
   html.operon-v2 #navigation [nav-banner].pencil_layout {
     padding: 0.5em 0.75em !important;
   }
@@ -261,6 +267,10 @@ html.operon-v2 #navigation [nav-banner] a[data-banner] {
 }
 
 @media screen and (max-width: 479px) {
+  html.operon-v2 {
+    --operon-nav-inset: 1rem;
+  }
+
   html.operon-v2 #navigation [nav-banner].pencil_layout {
     padding: 0.625em 0.625em !important;
   }
@@ -284,6 +294,7 @@ html.operon-v2 #navigation [nav-banner] a[data-banner] {
   --operon-ink: #11030e;
   --operon-plum: #460c39;
   --operon-mint: #49fdb2;
+  --operon-nav-inset: 2.5rem;
   --color-3: #49fdb2;
   --color-18: #49fdb2;
   --color-19: #49fdb2;
@@ -485,6 +496,104 @@ html.operon-v2 .blinkexpander .mw-78.background-blue svg {
   display: block;
   width: 100%;
   height: 100%;
+}
+
+/* Home trust / blink — stacked rows (lead → result → 3 highlights) */
+html.operon-v2 .blink_wrap .reveal-lines.operon-trust-reveal {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  background-color: var(--operon-bg) !important;
+  gap: 0;
+}
+
+html.operon-v2 .blink_wrap .operon-trust-lead,
+html.operon-v2 .blink_wrap .operon-trust-result {
+  display: block !important;
+  width: 100% !important;
+  margin-right: 0 !important;
+  vertical-align: baseline !important;
+}
+
+html.operon-v2 .blink_wrap .operon-trust-result {
+  margin-top: 0.35em !important;
+  margin-bottom: 0.15em !important;
+}
+
+html.operon-v2 .blink_wrap .operon-trust-highlight-row {
+  display: block !important;
+  width: 100% !important;
+  margin-top: 0.35em !important;
+  margin-bottom: 0.1em !important;
+  min-height: 1.05em !important;
+  clear: both !important;
+}
+
+html.operon-v2 .blink_wrap .operon-trust-highlight-row + .operon-trust-highlight-row {
+  margin-top: 0.45em !important;
+}
+
+html.operon-v2 .blink_wrap .blinkexpander.operon-trust-highlight {
+  display: flex !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  vertical-align: top !important;
+  position: relative !important;
+  z-index: 1 !important;
+  align-items: center !important;
+}
+
+html.operon-v2 .blink_wrap .operon-trust-highlight .custom-span.custom {
+  display: inline-flex !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+  max-width: 100% !important;
+  background-color: var(--operon-bg) !important;
+  line-height: 1.05 !important;
+}
+
+html.operon-v2 .blink_wrap .operon-trust-highlight .icon_expander {
+  flex-shrink: 0 !important;
+}
+
+html.operon-v2 .blink_wrap .operon-trust-highlight .higlight_wrapper {
+  flex: 0 1 auto !important;
+  min-width: 0 !important;
+}
+
+html.operon-v2 .blink_wrap .operon-trust-highlight .custom-span.invert {
+  vertical-align: baseline !important;
+  white-space: normal !important;
+}
+
+@media screen and (max-width: 991px) {
+  html.operon-v2 .blink_wrap .operon-trust-result {
+    margin-top: 0.5em !important;
+    margin-bottom: 0.35em !important;
+  }
+
+  html.operon-v2 .blink_wrap .operon-trust-highlight-row {
+    margin-top: 0.45em !important;
+  }
+
+  html.operon-v2 .blink_wrap .operon-trust-highlight-row + .operon-trust-highlight-row {
+    margin-top: 0.55em !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  html.operon-v2 .blink_wrap .operon-trust-highlight .custom-span.invert {
+    font-size: 2.25em !important;
+    line-height: 1.12 !important;
+  }
+
+  html.operon-v2 .blink_wrap .operon-trust-lead,
+  html.operon-v2 .blink_wrap .operon-trust-result {
+    font-size: 2.25em !important;
+    line-height: 1.12 !important;
+  }
 }
 
 /* Operon angular icon tiles (home-selection tabs; Lottie kept in blink row) */

@@ -25,7 +25,8 @@ export const HOME_TAB_ICON_MAP = {
 export const BLINK_ICON_MAP = {
   "Hatékony működés": "apps",
   "átlátható folyamatok": "verified",
-  "adatvezérelt növekedés": "network",
+  "Átlátható folyamatok": "verified",
+  "Adatvezérelt növekedés": "network",
 };
 
 export function operonIconTile(iconKey, variant = "plum") {

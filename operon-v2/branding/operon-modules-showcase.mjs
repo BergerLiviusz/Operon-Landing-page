@@ -1,5 +1,10 @@
 /** Developers-page feature showcase adapted for Operon ERP modules (home #modules). */
 
+/** Plum square grid + center radial fade for #modules — pure CSS, no JS. */
+export function buildOperonModulesBgGridHtml() {
+  return `<div class="operon-modules-bg-grid" aria-hidden="true"></div>`;
+}
+
 const LOTTIE = {
   card1:
     "https://cdn.prod.website-files.com/68e8e0120513ba12c5cd12e0/6981b2010c984e8de9a75612_developers_circle_.json",
