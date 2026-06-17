@@ -1,0 +1,112 @@
+/* Lightweight Operon footer */
+
+html.operon-v2 .operon-footer {
+  background: var(--operon-bg, #f6f2f0);
+  color: var(--operon-contrast-ink, #11030e);
+}
+
+html.operon-v2 .operon-footer .padding-global,
+html.operon-v2 .operon-footer .container-1400 {
+  background: transparent;
+}
+
+html.operon-v2 .operon-footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  padding: 2.5rem 0 2.75rem;
+}
+
+html.operon-v2 .operon-footer__rule {
+  display: block;
+  width: 100%;
+  color: rgba(70, 12, 57, 0.22);
+}
+
+html.operon-v2 .operon-footer__main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem 3rem;
+  flex-wrap: wrap;
+}
+
+html.operon-v2 .operon-footer__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+html.operon-v2 .operon-footer__logo {
+  display: block;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex-shrink: 0;
+}
+
+html.operon-v2 .operon-footer__wordmark {
+  font-family: "TWK Everett", Arial, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: var(--operon-plum, #460c39);
+}
+
+html.operon-v2 .operon-footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.5rem;
+}
+
+html.operon-v2 .operon-footer__link {
+  font-family: "TWK Everett", Arial, sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--operon-contrast-ink, #11030e);
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+html.operon-v2 .operon-footer__link:hover,
+html.operon-v2 .operon-footer__link:focus-visible {
+  color: var(--operon-plum, #460c39);
+  outline: none;
+}
+
+html.operon-v2 .operon-footer__copy {
+  margin: 0;
+  font-family: "TWK Everett Mono", "SF Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  color: rgba(17, 3, 14, 0.52);
+}
+
+/* Hide legacy Sui footer chrome if any fragments remain */
+html.operon-v2 .operon-footer .footer-layout,
+html.operon-v2 .operon-footer .footer-component,
+html.operon-v2 .operon-footer .footer_block_wrapper,
+html.operon-v2 .operon-footer .footer_social-block,
+html.operon-v2 .operon-footer .footer_copyright {
+  display: none !important;
+}
+
+@media (max-width: 767px) {
+  html.operon-v2 .operon-footer__inner {
+    padding: 2rem 0 2.25rem;
+    gap: 1.5rem;
+  }
+
+  html.operon-v2 .operon-footer__main {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  html.operon-v2 .operon-footer__nav {
+    gap: 0.65rem 1.25rem;
+  }
+}
