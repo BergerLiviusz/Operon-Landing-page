@@ -15,6 +15,7 @@
     "audit:local": "node scripts/playwright-audit-local.mjs",
     "audit:home-selection": "node scripts/playwright-audit-home-selection.mjs",
     "audit:developers": "node scripts/playwright-audit-developers.mjs",
+    "clone:sui-faq": "node scripts/playwright-clone-sui-faq.mjs",
     "validate": "node scripts/validate-site.mjs"
   },
   "devDependencies": {

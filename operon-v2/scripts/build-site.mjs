@@ -9,6 +9,7 @@ import { cp, mkdir, readFile, writeFile, rm, access, readdir } from "node:fs/pro
 import { join, resolve, extname } from "node:path";
 import { buildOperonModulesShowcaseHtml, buildOperonModulesBgGridHtml } from "../branding/operon-modules-showcase.mjs";
 import { buildOperonErpContrastHtml } from "../branding/operon-erp-contrast.mjs";
+import { buildOperonFooterHtml } from "../branding/operon-footer.mjs";
 import { patchHomeTrustBlink } from "../branding/operon-home-trust.mjs";
 
 const V2 = resolve(import.meta.dirname, "..");
@@ -16,11 +17,6 @@ const BRANDING = join(V2, "branding");
 const OUT = join(V2, "site");
 const BUILD_ASSET_VERSION = String(Date.now());
 const CUSTOM_DOMAIN = "www.operonworks.hu";
-
-async function resolvePublicDir() {
-  if (await exists(join(BRANDING, "operon_favico.svg"))) return BRANDING;
-  return join(V2, "..", "public");
-}
 
 async function writeDeployArtifacts() {
   await writeFile(join(OUT, ".nojekyll"), "");
@@ -120,6 +116,8 @@ async function patchPaletteInTree(dir) {
     if (entry.name.startsWith("operon-modules-showcase.")) continue;
     if (entry.name.startsWith("operon-erp-contrast.")) continue;
     if (entry.name.startsWith("operon-efficiency-chart.")) continue;
+    if (entry.name.startsWith("operon-faq.")) continue;
+    if (entry.name.startsWith("operon-footer.")) continue;
 
     let text = await readFile(path, "utf8");
     const original = text;
@@ -227,6 +225,13 @@ const HOME_KAPCSOLATBAN_RE = /<section class="home-kapcsolatban">[\s\S]*?<\/sect
 /** Remove legacy Sui industry grid + contact CTA blocks below ERP contrast. */
 function removeHomeIndustrySections(html) {
   return html.replace(HOME_INDUSTRY_RE, "").replace(HOME_KAPCSOLATBAN_RE, "");
+}
+
+const SCROLL_FOOTER_RE = /<div class="scroll_footer"><footer class="footer">[\s\S]*?<\/footer>/;
+
+/** Replace Sui mega-footer with lightweight Operon footer. */
+function replaceFooterWithOperon(html) {
+  return html.replace(SCROLL_FOOTER_RE, buildOperonFooterHtml());
 }
 
 /** Replace Rive timeline with Sui developers-style feature showcase. */
@@ -356,9 +361,13 @@ function patchHtmlTechnical(html, page) {
       `<link href="${operonAsset("css/operon-erp-contrast.css")}" rel="stylesheet" type="text/css">`;
     const efficiencyCss =
       `<link href="${operonAsset("css/operon-efficiency-chart.css")}" rel="stylesheet" type="text/css">`;
+    const faqCss =
+      `<link href="${operonAsset("css/operon-faq.css")}" rel="stylesheet" type="text/css">`;
+    const footerCss =
+      `<link href="${operonAsset("css/operon-footer.css")}" rel="stylesheet" type="text/css">`;
     out = out.replace(
       /(<link href="css\/operon-brand\.css(?:\?[^"]*)?"[^>]*>)/,
-      `$1${asciiCss}${modulesCss}${contrastCss}${efficiencyCss}`,
+      `$1${asciiCss}${modulesCss}${contrastCss}${efficiencyCss}${faqCss}${footerCss}`,
     );
   }
 
@@ -388,6 +397,10 @@ function patchHtmlTechnical(html, page) {
     const efficiencyJs = '<script src="js/operon-efficiency-chart.js" defer></script>';
     if (!out.includes("operon-efficiency-chart.js")) {
       out = out.replace("</body>", `${efficiencyJs}\n</body>`);
+    }
+    const faqJs = '<script src="js/operon-faq.js" defer></script>';
+    if (!out.includes("operon-faq.js")) {
+      out = out.replace("</body>", `${faqJs}\n</body>`);
     }
   }
 
@@ -453,7 +466,6 @@ async function main() {
   }
 
   const content = JSON.parse(await readFile(join(BRANDING, "content.hu.json"), "utf8"));
-  const publicDir = await resolvePublicDir();
 
   console.log("[operon-v2] Cloning Sui exports → operon-v2/site/");
 
@@ -482,11 +494,14 @@ async function main() {
   await cp(join(BRANDING, "operon-erp-contrast.js"), join(OUT, "js/operon-erp-contrast.js"));
   await cp(join(BRANDING, "operon-efficiency-chart.css"), join(OUT, "css/operon-efficiency-chart.css"));
   await cp(join(BRANDING, "operon-efficiency-chart.js"), join(OUT, "js/operon-efficiency-chart.js"));
+  await cp(join(BRANDING, "operon-faq.css"), join(OUT, "css/operon-faq.css"));
+  await cp(join(BRANDING, "operon-faq.js"), join(OUT, "js/operon-faq.js"));
+  await cp(join(BRANDING, "operon-footer.css"), join(OUT, "css/operon-footer.css"));
   await cp(join(BRANDING, "operon-logo.png"), join(OUT, "images/operon-logo.png"));
   await cp(join(BRANDING, "operon-logo.png"), join(OUT, "developers/images/operon-logo.png"));
-  await cp(join(publicDir, "operon_favico.svg"), join(OUT, "images/operon_favico.svg"));
-  await cp(join(publicDir, "operon_favico.svg"), join(OUT, "developers/images/operon_favico.svg"));
-  await cp(join(publicDir, "Operon_Logo_symbol.svg"), join(OUT, "images/Operon_Logo_symbol.svg"));
+  await cp(join(BRANDING, "operon_favico.svg"), join(OUT, "images/operon_favico.svg"));
+  await cp(join(BRANDING, "operon_favico.svg"), join(OUT, "developers/images/operon_favico.svg"));
+  await cp(join(BRANDING, "Operon_Logo_symbol.svg"), join(OUT, "images/Operon_Logo_symbol.svg"));
 
   const allShared = content.shared;
 
@@ -501,6 +516,7 @@ async function main() {
   homeHtml = removeSuiLogoSection(homeHtml);
   homeHtml = replaceHomeBenefitsWithContrast(homeHtml);
   homeHtml = removeHomeIndustrySections(homeHtml);
+  homeHtml = replaceFooterWithOperon(homeHtml);
   /* Keep original lottieReveal icons in home-selection (Operon CSS recolors tiles). */
   homeHtml = replaceHeroWithAsciiHero(homeHtml);
   homeHtml = patchHtmlTechnical(homeHtml, "home");

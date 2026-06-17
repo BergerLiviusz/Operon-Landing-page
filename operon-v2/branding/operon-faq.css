@@ -1,0 +1,273 @@
+/* Operon FAQ — Sui builder FAQ accordion (light mode) */
+
+html.operon-v2 .operon-faq-hero {
+  padding: 4.5rem 0 2.5rem;
+  background: var(--operon-contrast-bg, #f6f2f0);
+  color: var(--operon-contrast-ink, #11030e);
+}
+
+html.operon-v2 .operon-faq-hero__layout {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+}
+
+html.operon-v2 .operon-faq-hero__copy {
+  position: relative;
+  z-index: 1;
+  max-width: 40rem;
+}
+
+html.operon-v2 .operon-faq-hero__eyebrow {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  color: var(--operon-plum, #460c39);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+html.operon-v2 .operon-faq-hero__title {
+  margin: 0 0 1rem;
+  color: var(--operon-contrast-ink, #11030e);
+  font-family: "TWK Everett", Arial, sans-serif;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+html.operon-v2 .operon-faq-hero__lede {
+  margin: 0;
+  max-width: 34rem;
+  color: var(--operon-contrast-muted, #6c7584);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+
+html.operon-v2 .operon-faq-hero__pattern {
+  position: absolute;
+  top: -2rem;
+  right: -4rem;
+  width: min(420px, 40vw);
+  height: min(420px, 40vw);
+  opacity: 0.35;
+  background-image:
+    linear-gradient(rgba(70, 12, 57, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(70, 12, 57, 0.09) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: radial-gradient(circle at 70% 40%, #000 0%, transparent 72%);
+  pointer-events: none;
+}
+
+html.operon-v2 .operon-faq-main {
+  padding: 0 0 5.5rem;
+  margin-bottom: 2.5rem;
+  background: var(--operon-contrast-bg, #f6f2f0);
+  color: var(--operon-contrast-ink, #11030e);
+}
+
+html.operon-v2 .operon-efficiency-chart + .operon-faq-hero {
+  padding-top: 3.5rem;
+}
+
+html.operon-v2 .operon-faq-main__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+html.operon-v2 .operon-faq-dd {
+  width: 100%;
+}
+
+html.operon-v2 .operon-faq-dd__head {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  width: 100%;
+  padding: 1.75rem 1rem;
+  border: none;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+html.operon-v2 .operon-faq-dd__head:hover,
+html.operon-v2 .operon-faq-dd__head:focus-visible {
+  background: rgba(70, 12, 57, 0.04);
+  outline: none;
+}
+
+html.operon-v2 .operon-faq-dd__mark {
+  flex-shrink: 0;
+  width: 0.75rem;
+  height: 0.75rem;
+  background: var(--operon-plum, #460c39);
+}
+
+html.operon-v2 .operon-faq-dd__title {
+  margin: 0;
+  color: var(--operon-contrast-ink, #11030e);
+  font-family: "TWK Everett", Arial, sans-serif;
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+html.operon-v2 .operon-faq-dd__plus {
+  display: block;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  transition: transform 0.28s cubic-bezier(0.3, 0, 0.25, 1);
+}
+
+html.operon-v2 .operon-faq-dd__plus-bg {
+  fill: rgba(70, 12, 57, 0.1);
+  transition: fill 0.22s ease;
+}
+
+html.operon-v2 .operon-faq-dd__plus-v,
+html.operon-v2 .operon-faq-dd__plus-h {
+  fill: none;
+  stroke: var(--operon-plum, #460c39);
+  transition: stroke 0.22s ease;
+}
+
+html.operon-v2 .operon-faq-dd__head:hover .operon-faq-dd__plus-bg,
+html.operon-v2 .operon-faq-dd__head:focus-visible .operon-faq-dd__plus-bg {
+  fill: rgba(73, 253, 178, 0.55);
+}
+
+html.operon-v2 .operon-faq-dd__head:hover .operon-faq-dd__plus-v,
+html.operon-v2 .operon-faq-dd__head:hover .operon-faq-dd__plus-h,
+html.operon-v2 .operon-faq-dd__head:focus-visible .operon-faq-dd__plus-v,
+html.operon-v2 .operon-faq-dd__head:focus-visible .operon-faq-dd__plus-h {
+  stroke: var(--operon-plum, #460c39);
+}
+
+html.operon-v2 .operon-faq-dd.is--open .operon-faq-dd__plus {
+  transform: rotate(45deg);
+}
+
+html.operon-v2 .operon-faq-dd.is--open .operon-faq-dd__plus-bg {
+  fill: var(--operon-plum, #460c39);
+}
+
+html.operon-v2 .operon-faq-dd.is--open .operon-faq-dd__plus-v,
+html.operon-v2 .operon-faq-dd.is--open .operon-faq-dd__plus-h {
+  stroke: #f6f2f0;
+}
+
+html.operon-v2 .operon-faq-dd__body {
+  overflow: hidden;
+}
+
+html.operon-v2 .operon-faq-dd__body-inner {
+  padding: 0 1rem 1.75rem 2.35rem;
+}
+
+html.operon-v2 .operon-faq-dd__answer {
+  margin: 0;
+  max-width: 52rem;
+  color: var(--operon-contrast-muted, #6c7584);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+html.operon-v2 .operon-faq-dd__rule {
+  display: block;
+  color: rgba(70, 12, 57, 0.22);
+}
+
+html.operon-v2 .operon-faq-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+html.operon-v2 .operon-faq-card {
+  min-height: 10rem;
+  padding: 1.125rem 1rem 1.25rem;
+  border: 1px dashed rgba(70, 12, 57, 0.22);
+  background: rgba(255, 255, 255, 0.72);
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+html.operon-v2 .operon-faq-card:hover {
+  border-color: rgba(70, 12, 57, 0.38);
+  background: rgba(73, 253, 178, 0.08);
+}
+
+html.operon-v2 .operon-faq-card__head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.875rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px dashed rgba(70, 12, 57, 0.14);
+}
+
+html.operon-v2 .operon-faq-card__title {
+  margin: 0;
+  color: var(--operon-contrast-ink, #11030e);
+  font-family: "TWK Everett", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+html.operon-v2 .operon-faq-card__text {
+  margin: 0;
+  color: var(--operon-contrast-muted, #6c7584);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+html.operon-v2 .operon-faq-link {
+  color: var(--operon-plum, #460c39);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+html.operon-v2 .operon-faq-link:hover {
+  color: #11030e;
+}
+
+@media (max-width: 991px) {
+  html.operon-v2 .operon-faq-cards {
+    grid-template-columns: 1fr;
+  }
+
+  html.operon-v2 .operon-faq-dd__body-inner {
+    padding-left: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  html.operon-v2 .operon-faq-hero {
+    padding: 3rem 0 1.75rem;
+  }
+
+  html.operon-v2 .operon-efficiency-chart + .operon-faq-hero {
+    padding-top: 2.5rem;
+  }
+
+  html.operon-v2 .operon-faq-main {
+    padding-bottom: 4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  html.operon-v2 .operon-faq-dd__head {
+    padding: 1.25rem 0.5rem;
+  }
+}
